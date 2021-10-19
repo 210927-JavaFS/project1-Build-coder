@@ -10,7 +10,7 @@ package com.revature.models;
  * USER_ROLE_ID             NUMBER
  */
 
-public class Users {
+public class User {
 
     private int userID;
     private String userName;
@@ -18,10 +18,10 @@ public class Users {
     private String firstName;
     private String lastName;
     private String email;
-    private int roleID;
+    private Role roleID;
 
-    public Users(int userID, String userName, String password, String firstName, String lastName, String email,
-            int roleID) {
+    public User(int userID, String userName, String password, String firstName, String lastName, String email,
+            Role roleID) {
         super();
         this.userID = userID;
         this.userName = userName;
@@ -32,7 +32,7 @@ public class Users {
         this.roleID = roleID;
     }
 
-    public Users(){
+    public User(){
         super();
     }
 
@@ -84,11 +84,11 @@ public class Users {
         this.email = email;
     }
 
-    public int getRoleID() {
+    public Role getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(int roleID) {
+    public void setRoleID(Role roleID) {
         this.roleID = roleID;
     }
 
@@ -100,7 +100,7 @@ public class Users {
         result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + roleID;
+        result = prime * result + ((roleID == null) ? 0 : roleID.hashCode());
         result = prime * result + userID;
         result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         return result;
@@ -114,7 +114,7 @@ public class Users {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Users other = (Users) obj;
+        User other = (User) obj;
         if (email == null) {
             if (other.email != null)
                 return false;
@@ -135,7 +135,10 @@ public class Users {
                 return false;
         } else if (!password.equals(other.password))
             return false;
-        if (roleID != other.roleID)
+        if (roleID == null) {
+            if (other.roleID != null)
+                return false;
+        } else if (!roleID.equals(other.roleID))
             return false;
         if (userID != other.userID)
             return false;
@@ -149,8 +152,8 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
-                + password + ", roleID=" + roleID + ", userID=" + userID + ", userName=" + userName + "]";
+        return "User [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
+                + ", roleID=" + roleID + ", userID=" + userID + ", userName=" + userName + "]";
     }
 }
 
