@@ -11,14 +11,14 @@ public class App {
 	public static void main(String[] args) {
 		app = Javalin.create();
 		
-		configure(new EmployeeController(), new FinanceManagerController());
+		configure(new UserController(), new FinanceManagerController());
 		
 		app.start();
 
 	}
 
 	// ide says I need this method
-	private static void configure(EmployeeController employeeController,
+	private static void configure(UserController employeeController,
 			FinanceManagerController financeManagerController) {
 	}
 

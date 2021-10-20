@@ -1,5 +1,5 @@
 package com.revature.daos;
 
-public class ReimbursementReqDAO {
+public class ReimbursementDAO {
     
 }

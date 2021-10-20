@@ -12,6 +12,6 @@ package com.revature.controllers;
  * view past pending requests
  */
 
-public class EmployeeController {
+public class UserController {
 
 }
