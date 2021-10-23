@@ -16,14 +16,13 @@ public class User {
 
     public enum Role{EMPLOYEE, MANAGER};
 
-    // maybe set strategy to GenerationType.AUTO
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int id;
-    @Column(nullable = false, unique = true) private String userName;
-    @Column(nullable = false) private String password;
-    private String firstName;
-    private String lastName;
-    @Column(nullable = false, unique = true) private String email;
-    @Enumerated(EnumType.STRING) private Role role;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="user_id") private int id;
+    @Column(name="user_name", nullable = false, unique = true) private String userName;
+    @Column(name="user_password", nullable = false) private String password;
+    @Column(name="user_firstName") private String firstName;
+    @Column(name="user_lastName") private String lastName;
+    @Column(name="user_email", nullable = false, unique = true) private String email;
+    @Enumerated(EnumType.STRING) @Column(name="user_role") private Role role;
 
     public User(int id, String userName, String password, String firstName, String lastName, String email, Role role) {
         super();

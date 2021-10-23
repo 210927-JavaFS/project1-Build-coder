@@ -1,7 +1,11 @@
 package com.revature.models;
 
-import java.sql.Blob;
 import javax.persistence.*;
+
+// for time stamping
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  * REIM_ID              NUMBER
@@ -16,25 +20,23 @@ import javax.persistence.*;
  * REIM_TYPE_ID         NUMBER
  */
 
-
-public class Reimbursement {
+public class Invoice {
 
     public enum Status {PENDING, APPROVED, DENIED};
     public enum Type {LODGING, TRAVEL, FOOD, OTHER};
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int id;
-    // maybe do input validation here on HTML
-    @Column(columnDefinition = "CHECK amount > 0") private float amount;
-    private String submitted;
-    private String resolved;
-    private String desc;
-    private Blob receipt;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="invoice_id") private int id;
+    @Column(name="invoice_amt", columnDefinition = "CHECK amount > 0") private float amount;
+    @Column(name="invoice_submit") private String submitted = new SimpleDateFormat().format(new Date());
+    @Column(name="invoice_resolved") private String resolved = new SimpleDateFormat().format(new Date());
+    @Column(name="invoice_desc") private String desc;
+    @Column(name="invoice_receipt") private String receipt;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="author_id") private User author;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="resolver_id") private User resolver;
-    @Enumerated(EnumType.STRING) private Status status;
-    @Enumerated(EnumType.STRING) private Type type;
+    @Enumerated(EnumType.STRING) @Column(name="invoice_stat") private Status status;
+    @Enumerated(EnumType.STRING) @Column(name="invoice_type") private Type type;
 
-    public Reimbursement(int id, float amount, String submitted, String resolved, String desc, Blob receipt,
+    public Invoice(int id, float amount, String submitted, String resolved, String desc, String receipt,
             User author, User resolver, Status status, Type type) {
         super();
         this.id = id;
@@ -49,7 +51,7 @@ public class Reimbursement {
         this.type = type;
     }
 
-    public Reimbursement(float amount, String submitted, String resolved, String desc, Blob receipt, User author,
+    public Invoice(float amount, String submitted, String resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
         super();
         this.amount = amount;
@@ -63,7 +65,7 @@ public class Reimbursement {
         this.type = type;
     }
 
-    public Reimbursement() {
+    public Invoice() {
         super();
     }
 
@@ -107,11 +109,11 @@ public class Reimbursement {
         this.desc = desc;
     }
 
-    public Blob getReceipt() {
+    public String getReceipt() {
         return receipt;
     }
 
-    public void setReceipt(Blob receipt) {
+    public void setReceipt(String receipt) {
         this.receipt = receipt;
     }
 
@@ -172,7 +174,7 @@ public class Reimbursement {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Reimbursement other = (Reimbursement) obj;
+        Invoice other = (Invoice) obj;
         if (Float.floatToIntBits(amount) != Float.floatToIntBits(other.amount))
             return false;
         if (author == null) {

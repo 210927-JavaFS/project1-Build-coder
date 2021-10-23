@@ -10,7 +10,7 @@
 		<!-- JDBC -->
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">password</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/postgres</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- Hibernate Properties -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>

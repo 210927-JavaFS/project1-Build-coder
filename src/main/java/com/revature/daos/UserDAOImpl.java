@@ -2,11 +2,6 @@ package com.revature.daos;
 
 import java.util.List;
 
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,27 +12,25 @@ import com.revature.utils.HibernateUtil;
 public class UserDAOImpl implements UserDAO{
 
 	@Override
-	public List<User> getAllUsers() {
+	public List<User> findAllUsers() {
 		Session session = HibernateUtil.getSession();
-		List<User> users;
-		CriteriaBuilder critBuilder = session.getCriteriaBuilder();
-		CriteriaQuery<User> query = critBuilder.createQuery(User.class);
-		Root<User> root = query.from(User.class);
-		CriteriaQuery<User> allUsers = query.select(root);
-		TypedQuery<User> typed = session.createQuery(allUsers);
-		
-		users = typed.getResultList();
-		return users;
+		return session.createQuery("FROM Users").list();
 	}
 
 	@Override
-	public User getUserByID(int id) {
+	public User findById(int id) {
 		Session session = HibernateUtil.getSession();
 		return session.get(User.class, id);
 	}
 
 	@Override
-	public boolean insert(User user) {
+	public User findByName(String name) {
+		Session session = HibernateUtil.getSession();
+		return session.get(User.class, name);
+	}
+
+	@Override
+	public boolean addUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
@@ -52,7 +45,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public boolean update(User user) {
+	public boolean updateUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
@@ -67,7 +60,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public boolean delete(User user) {
+	public boolean deleteUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();

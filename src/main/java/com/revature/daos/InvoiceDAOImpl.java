@@ -6,30 +6,35 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.models.Reimbursement;
+import com.revature.models.Invoice;
 import com.revature.utils.HibernateUtil;
 
-public class ReimbursementDAOImpl implements ReimbursementDAO{
+public class InvoiceDAOImpl implements InvoiceDAO{
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> getAllReimbursements() {
+	public List<Invoice> findAllInvoices() {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("FROM Reimbursement").list();
+		return session.createQuery("FROM Invoice").list();
 	}
 
 	@Override
-	public Reimbursement getReimbursementByID(int id) {
+	public Invoice findById(int id) {
 		Session session = HibernateUtil.getSession();
-		return session.get(Reimbursement.class, id);
+		return session.get(Invoice.class, id);
 	}
 
 	@Override
-	public boolean insert(Reimbursement reimbursement) {
+	public Invoice findByName(String name) {
+		Session session = HibernateUtil.getSession();
+		return session.get(Invoice.class, name);
+	}
+
+	@Override
+	public boolean addInvoice(Invoice invoice) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.save(reimbursement);
+			session.save(invoice);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -40,11 +45,11 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 	}
 
 	@Override
-	public boolean update(Reimbursement reimbursement) {
+	public boolean updateInvoice(Invoice invoice) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.merge(reimbursement);
+			session.merge(invoice);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -55,11 +60,11 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 	}
 
 	@Override
-	public boolean delete(Reimbursement reimbursement) {
+	public boolean deleteInvoice(Invoice invoice) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.delete(reimbursement);
+			session.delete(invoice);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -68,4 +73,6 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 			return false;
 		}
 	}
+
+
 }

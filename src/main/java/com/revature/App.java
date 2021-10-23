@@ -1,22 +1,22 @@
 package com.revature;
 
+import com.revature.controllers.InvoiceController;
 import com.revature.controllers.Controller;
-import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UserController;
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 
-public class App 
-{
-	private static Javalin app;
+public class App {
 	
-	public static void main(String[] args)
-	{
+	private static Javalin app;
+
+	public static void main(String[] args) {
 		app = Javalin.create((config)->{
 			config.addStaticFiles("/static", Location.CLASSPATH);
 		});
 		
-		configure(new ReimbursementController());
+		configure(new UserController(), new InvoiceController());
 		
 		app.start(8081);
 
@@ -27,4 +27,5 @@ public class App
 			c.addRoutes(app);
 		}
 	}
+
 }
