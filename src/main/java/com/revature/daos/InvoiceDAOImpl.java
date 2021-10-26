@@ -73,6 +73,4 @@ public class InvoiceDAOImpl implements InvoiceDAO{
 			return false;
 		}
 	}
-
-
 }

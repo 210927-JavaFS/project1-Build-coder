@@ -1,11 +1,10 @@
 package com.revature.models;
 
-import javax.persistence.*;
-
-// for time stamping
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.*;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 /**
  * REIM_ID              NUMBER
@@ -20,15 +19,16 @@ import java.util.Date;
  * REIM_TYPE_ID         NUMBER
  */
 
+ @Entity
 public class Invoice {
 
     public enum Status {PENDING, APPROVED, DENIED};
     public enum Type {LODGING, TRAVEL, FOOD, OTHER};
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="invoice_id") private int id;
-    @Column(name="invoice_amt", columnDefinition = "CHECK amount > 0") private float amount;
-    @Column(name="invoice_submit") private String submitted = new SimpleDateFormat().format(new Date());
-    @Column(name="invoice_resolved") private String resolved = new SimpleDateFormat().format(new Date());
+    @Column(name="invoice_amt", columnDefinition = "CHECK amount > 0") private double amount;
+    @Column(name="invoice_submit") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date submitted;
+    @Column(name="invoice_resolved") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date resolved;
     @Column(name="invoice_desc") private String desc;
     @Column(name="invoice_receipt") private String receipt;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="author_id") private User author;
@@ -36,9 +36,31 @@ public class Invoice {
     @Enumerated(EnumType.STRING) @Column(name="invoice_stat") private Status status;
     @Enumerated(EnumType.STRING) @Column(name="invoice_type") private Type type;
 
-    public Invoice(int id, float amount, String submitted, String resolved, String desc, String receipt,
-            User author, User resolver, Status status, Type type) {
-        super();
+
+    /**
+     * method below is for testing. del after test pass
+     * @param status
+     * @param type
+     */
+    public Invoice(Status status, Type type) {
+        this.status = status;
+        this.type = type;
+    }
+
+    /**
+     * method below is for testing. del after test pass
+     * @param submitted
+     * @param resolved
+     */
+    public Invoice(Date submitted, Date resolved){
+        this.submitted = submitted;
+        this.resolved = resolved;
+    }
+
+
+
+    public Invoice(int id, double amount, Date submitted, Date resolved, String desc, String receipt, User author,
+            User resolver, Status status, Type type) {
         this.id = id;
         this.amount = amount;
         this.submitted = submitted;
@@ -51,9 +73,8 @@ public class Invoice {
         this.type = type;
     }
 
-    public Invoice(float amount, String submitted, String resolved, String desc, String receipt, User author,
+    public Invoice(double amount, Date submitted, Date resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
-        super();
         this.amount = amount;
         this.submitted = submitted;
         this.resolved = resolved;
@@ -77,27 +98,27 @@ public class Invoice {
         this.id = id;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
-    public String getSubmitted() {
+    public Date getSubmitted() {
         return submitted;
     }
 
-    public void setSubmitted(String submitted) {
+    public void setSubmitted(Date submitted) {
         this.submitted = submitted;
     }
 
-    public String getResolved() {
+    public Date getResolved() {
         return resolved;
     }
 
-    public void setResolved(String resolved) {
+    public void setResolved(Date resolved) {
         this.resolved = resolved;
     }
 
@@ -153,7 +174,9 @@ public class Invoice {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + Float.floatToIntBits(amount);
+        long temp;
+        temp = Double.doubleToLongBits(amount);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
         result = prime * result + ((author == null) ? 0 : author.hashCode());
         result = prime * result + ((desc == null) ? 0 : desc.hashCode());
         result = prime * result + id;
@@ -175,7 +198,7 @@ public class Invoice {
         if (getClass() != obj.getClass())
             return false;
         Invoice other = (Invoice) obj;
-        if (Float.floatToIntBits(amount) != Float.floatToIntBits(other.amount))
+        if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
             return false;
         if (author == null) {
             if (other.author != null)
@@ -218,7 +241,7 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Reimbursement [amount=" + amount + ", author=" + author + ", desc=" + desc + ", id=" + id + ", receipt="
+        return "Invoice [amount=" + amount + ", author=" + author + ", desc=" + desc + ", id=" + id + ", receipt="
                 + receipt + ", resolved=" + resolved + ", resolver=" + resolver + ", status=" + status + ", submitted="
                 + submitted + ", type=" + type + "]";
     }

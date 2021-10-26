@@ -12,6 +12,7 @@ import javax.persistence.*;
  * USER_ROLE_ID             NUMBER
  */
 
+ @Entity
 public class User {
 
     public enum Role{EMPLOYEE, MANAGER};
