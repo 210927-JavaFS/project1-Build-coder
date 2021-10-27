@@ -19,7 +19,7 @@ import org.hibernate.annotations.CreationTimestamp;
  * REIM_TYPE_ID         NUMBER
  */
 
- @Entity
+@Entity
 public class Invoice {
 
     public enum Status {PENDING, APPROVED, DENIED};
@@ -37,30 +37,31 @@ public class Invoice {
     @Enumerated(EnumType.STRING) @Column(name="invoice_type") private Type type;
 
 
-    /**
-     * method below is for testing. del after test pass
-     * @param status
-     * @param type
-     */
-    public Invoice(Status status, Type type) {
-        this.status = status;
-        this.type = type;
-    }
+    // /**
+    //  * method below is for testing. del after test pass
+    //  * @param status
+    //  * @param type
+    //  */
+    // public Invoice(Status status, Type type) {
+    //     this.status = status;
+    //     this.type = type;
+    // }
 
-    /**
-     * method below is for testing. del after test pass
-     * @param submitted
-     * @param resolved
-     */
-    public Invoice(Date submitted, Date resolved){
-        this.submitted = submitted;
-        this.resolved = resolved;
-    }
+    // /**
+    //  * method below is for testing. del after test pass
+    //  * @param submitted
+    //  * @param resolved
+    //  */
+    // public Invoice(Date submitted, Date resolved){
+    //     this.submitted = submitted;
+    //     this.resolved = resolved;
+    // }
 
 
 
     public Invoice(int id, double amount, Date submitted, Date resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
+        super();
         this.id = id;
         this.amount = amount;
         this.submitted = submitted;
@@ -75,6 +76,7 @@ public class Invoice {
 
     public Invoice(double amount, Date submitted, Date resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
+        super();
         this.amount = amount;
         this.submitted = submitted;
         this.resolved = resolved;
