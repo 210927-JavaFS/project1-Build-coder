@@ -11,7 +11,6 @@ import com.revature.models.User;
 import com.revature.models.Invoice.Status;
 import com.revature.models.Invoice.Type;
 
-import org.hibernate.Session;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,7 +23,6 @@ import org.slf4j.LoggerFactory;
 public class InvoiceServiceTest{
 
     public Date date = new Date();
-    // public Timestamp ts = new Timestamp(date.getTime());
     public static InvoiceService invoiceService;
     List<Invoice> invoices = new ArrayList<Invoice>();
     List<Invoice> invoicesDB = new ArrayList<Invoice>();
@@ -32,7 +30,6 @@ public class InvoiceServiceTest{
     // timeStamp = Date.now();
     User author;
     User resolver;
-    Session session;
 
     Invoice invoice;
     Invoice invoice1 = new Invoice(1,50,date,date,"desc","receipt",author,

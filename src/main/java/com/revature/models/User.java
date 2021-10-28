@@ -20,13 +20,13 @@ public class User {
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="user_id") private int id;
     @Column(name="user_name", nullable = false, unique = true) private String userName;
-    @Column(name="user_password", nullable = false) private String password;
+    @Column(name="user_password", nullable = false) private int password;
     @Column(name="user_firstName") private String firstName;
     @Column(name="user_lastName") private String lastName;
-    @Column(name="user_email", nullable = false, unique = true) private String email;
+    @Column(name="user_email", nullable = false) private String email;
     @Enumerated(EnumType.STRING) @Column(name="user_role") private Role role;
 
-    public User(int id, String userName, String password, String firstName, String lastName, String email, Role role) {
+    public User(int id, String userName, int password, String firstName, String lastName, String email, Role role) {
         super();
         this.id = id;
         this.userName = userName;
@@ -37,7 +37,7 @@ public class User {
         this.role = role;
     }
 
-    public User(String userName, String password, String firstName, String lastName, String email, Role role) {
+    public User(String userName, int password, String firstName, String lastName, String email, Role role) {
         super();
         this.userName = userName;
         this.password = password;

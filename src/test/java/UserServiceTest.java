@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 public class UserServiceTest{
 
     public Date date = new Date();
-    // public Timestamp ts = new Timestamp(date.getTime());
     public static UserService userService;
     List<User> users = new ArrayList<User>();
     List<User> usersDB = new ArrayList<User>();
@@ -33,10 +32,10 @@ public class UserServiceTest{
 
     User user;
     User userDB;
-    User user1 = new User(1,"agent smith", "pass", "agent", "smith", "humansSuck@gmail.com", Role.EMPLOYEE);
-    User user2 = new User(2,"oracle", "pass", "know", "thyself", "knowThyself@gmail.com", Role.EMPLOYEE);
-    User user3 = new User(3,"neo one", "pass", "new", "one", "theOne@gmail.com", Role.MANAGER);
-    User user4 = new User(4,"morpheus", "pass", "morph", "us", "morphUs@gmail.com", Role.MANAGER);
+    User user1 = new User(1,"agent smith", "pass1", "agent", "smith", "humansSuck@gmail.com", Role.EMPLOYEE);
+    User user2 = new User(2,"oracle", "pass2", "know", "thyself", "knowThyself@gmail.com", Role.EMPLOYEE);
+    User user3 = new User(3,"neo one", "pass3", "new", "one", "theOne@gmail.com", Role.MANAGER);
+    User user4 = new User(4,"morpheus", "pass4", "morph", "us", "morphUs@gmail.com", Role.MANAGER);
 
     boolean testPass;
 
@@ -83,7 +82,7 @@ public class UserServiceTest{
 
 		testPass = userService.addUser(user1);
         assertTrue(testPass);
-
+        
         testPass = userService.addUser(user2);
         assertTrue(testPass);
 
