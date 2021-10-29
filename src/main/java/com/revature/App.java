@@ -1,6 +1,6 @@
 package com.revature;
 
-import com.revature.controllers.InvoiceController;
+import com.revature.controllers.TicketController;
 import com.revature.controllers.Controller;
 import com.revature.controllers.UserController;
 import com.revature.controllers._UserController;
@@ -18,7 +18,7 @@ public class App {
 			config.addStaticFiles("/static", Location.CLASSPATH);
 		});
 		
-		configure(new UserController(), new InvoiceController(), new _UserController());
+		configure(new UserController(), new TicketController(), new _UserController());
 		
 		app.start(8081);
 

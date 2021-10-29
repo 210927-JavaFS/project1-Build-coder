@@ -19,7 +19,7 @@ public class User {
     public enum Role{EMPLOYEE, MANAGER};
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="user_id") private int id;
-    @Column(name="user_name", nullable = false, unique = true) private String userName;
+    @Column(name="user_name", nullable = false) private String userName;
     @Column(name="user_password", nullable = false) private int password;
     @Column(name="user_firstName") private String firstName;
     @Column(name="user_lastName") private String lastName;

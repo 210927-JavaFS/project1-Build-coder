@@ -20,47 +20,24 @@ import org.hibernate.annotations.CreationTimestamp;
  */
 
 @Entity
-@Table(name = "invoices")
-public class Invoice {
+@Table(name = "tickets")
+public class Ticket {
 
     public enum Status {PENDING, APPROVED, DENIED};
     public enum Type {LODGING, TRAVEL, FOOD, OTHER};
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="invoice_id") private int id;
-    @Column(name="invoice_amt") private double amount;
-    @Column(name="invoice_submit") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date submitted;
-    @Column(name="invoice_resolved") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date resolved;
-    @Column(name="invoice_desc") private String desc;
-    @Column(name="invoice_receipt") private String receipt;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) @Column(name="ticket_id") private int id;
+    @Column(name="ticket_amt") private double amount;
+    @Column(name="ticket_submit") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date submitted;
+    @Column(name="ticket_resolved") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date resolved;
+    @Column(name="ticket_desc") private String desc;
+    @Column(name="ticket_receipt") private String receipt;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="author_id") private User author;
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="resolver_id") private User resolver;
-    @Enumerated(EnumType.STRING) @Column(name="invoice_stat") private Status status;
-    @Enumerated(EnumType.STRING) @Column(name="invoice_type") private Type type;
+    @Enumerated(EnumType.STRING) @Column(name="ticket_stat") private Status status;
+    @Enumerated(EnumType.STRING) @Column(name="ticket_type") private Type type;
 
-
-    // /**
-    //  * method below is for testing. del after test pass
-    //  * @param status
-    //  * @param type
-    //  */
-    // public Invoice(Status status, Type type) {
-    //     this.status = status;
-    //     this.type = type;
-    // }
-
-    // /**
-    //  * method below is for testing. del after test pass
-    //  * @param submitted
-    //  * @param resolved
-    //  */
-    // public Invoice(Date submitted, Date resolved){
-    //     this.submitted = submitted;
-    //     this.resolved = resolved;
-    // }
-
-
-
-    public Invoice(int id, double amount, Date submitted, Date resolved, String desc, String receipt, User author,
+    public Ticket(int id, double amount, Date submitted, Date resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
         super();
         this.id = id;
@@ -75,7 +52,7 @@ public class Invoice {
         this.type = type;
     }
 
-    public Invoice(double amount, Date submitted, Date resolved, String desc, String receipt, User author,
+    public Ticket(double amount, Date submitted, Date resolved, String desc, String receipt, User author,
             User resolver, Status status, Type type) {
         super();
         this.amount = amount;
@@ -89,7 +66,7 @@ public class Invoice {
         this.type = type;
     }
 
-    public Invoice() {
+    public Ticket() {
         super();
     }
 
@@ -200,7 +177,7 @@ public class Invoice {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Invoice other = (Invoice) obj;
+        Ticket other = (Ticket) obj;
         if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
             return false;
         if (author == null) {
@@ -244,7 +221,7 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Invoice [amount=" + amount + ", author=" + author + ", desc=" + desc + ", id=" + id + ", receipt="
+        return "Ticket [amount=" + amount + ", author=" + author + ", desc=" + desc + ", id=" + id + ", receipt="
                 + receipt + ", resolved=" + resolved + ", resolver=" + resolver + ", status=" + status + ", submitted="
                 + submitted + ", type=" + type + "]";
     }

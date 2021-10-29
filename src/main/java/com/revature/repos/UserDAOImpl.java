@@ -14,7 +14,7 @@ public class UserDAOImpl{
 	
 	public List<User> findAllUsers() {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("FROM Users").list();
+		return session.createQuery("FROM User").list();
 	}
 
 	

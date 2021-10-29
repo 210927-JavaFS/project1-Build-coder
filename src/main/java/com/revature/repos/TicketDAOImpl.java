@@ -6,35 +6,35 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.models.Invoice;
+import com.revature.models.Ticket;
 import com.revature.utils.HibernateUtil;
 
-public class InvoiceDAOImpl{
+public class TicketDAOImpl{
 
 	
-	public List<Invoice> findAllInvoices() {
+	public List<Ticket> findAllTickets() {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("FROM Invoice").list();
+		return session.createQuery("FROM Ticket").list();
 	}
 
 	
-	public Invoice findById(int id) {
+	public Ticket findById(int id) {
 		Session session = HibernateUtil.getSession();
-		return session.get(Invoice.class, id);
+		return session.get(Ticket.class, id);
 	}
 
 	
-	public Invoice findByName(String name) {
+	public Ticket findByName(String name) {
 		Session session = HibernateUtil.getSession();
-		return session.get(Invoice.class, name);
+		return session.get(Ticket.class, name);
 	}
 
 	
-	public boolean addInvoice(Invoice invoice) {
+	public boolean addTicket(Ticket ticket) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.save(invoice);
+			session.save(ticket);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -45,11 +45,11 @@ public class InvoiceDAOImpl{
 	}
 
 	
-	public boolean updateInvoice(Invoice invoice) {
+	public boolean updateTicket(Ticket ticket) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.merge(invoice);
+			session.merge(ticket);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -60,11 +60,11 @@ public class InvoiceDAOImpl{
 	}
 
 	
-	public boolean deleteInvoice(Invoice invoice) {
+	public boolean deleteTicket(Ticket ticket) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.delete(invoice);
+			session.delete(ticket);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;

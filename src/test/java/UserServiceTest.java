@@ -14,11 +14,14 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.TestMethodOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@TestMethodOrder(OrderAnnotation.class)
 public class UserServiceTest{
 
     public Date date = new Date();
@@ -54,6 +57,7 @@ public class UserServiceTest{
     }
 
     @Test
+    @Order(1)
     public void addUserTest(){
         log.info("---Begin of addUser-------------------------------------");
 		testPass = userService.addUser(user1);
@@ -66,19 +70,21 @@ public class UserServiceTest{
 	}
 
     @Test
+    @Order(2)
 	public void deleteuser(){
-        log.info("---Begin of deleteuser-------------------------------------");
+        log.info("---Begin of deleteUser-------------------------------------");
 		testPass = userService.deleteUser(user1.getId());
         assertTrue(testPass);
 
         testPass = userService.deleteUser(user2.getId());
         assertTrue(testPass);
-        log.info("---End of deleteuser---------------------------------------");
+        log.info("---End of deleteUser---------------------------------------");
 	}
 
     @Test
+    @Order(3)
     public void getAllusersTest(){
-		log.info("---Begin of getAllusers-------------------------------------");
+		log.info("---Begin of getAllUsers-------------------------------------");
 
 		testPass = userService.addUser(user1);
         assertTrue(testPass);
@@ -102,12 +108,13 @@ public class UserServiceTest{
             i++;
         }
         
-        log.info("---End of getAllusers---------------------------------------");
+        log.info("---End of getAllUsers---------------------------------------");
 	}
 
     @Test
+    @Order(4)
 	public void getuserByIdTest(){
-        log.info("---Begin of getuserById-------------------------------------");
+        log.info("---Begin of getUserById-------------------------------------");
         userDB = userService.getUserById(user3.getId());
         assertNotNull(userDB);
         assertEquals(user3.getId(),userDB.getId());
@@ -115,17 +122,18 @@ public class UserServiceTest{
         userDB = userService.getUserById(user4.getId());
         assertNotNull(userDB);
         assertEquals(user4.getId(),userDB.getId());
-        log.info("---End of getuserById---------------------------------------");
+        log.info("---End of getUserById---------------------------------------");
 	}
 
 	@Test
-	public void updateuserTest(){
-        log.info("---Begin of updateuser-------------------------------------");
+    @Order(5)
+	public void updateUserTest(){
+        log.info("---Begin of updateUser-------------------------------------");
         assertEquals(user3.getEmail(),"theOne@gmail.com");
         user3.setEmail("notTheOne@gmail.com");
 		testPass = userService.updateUser(user3);
         assertTrue(testPass);
-        log.info("---End of updateuser---------------------------------------");
+        log.info("---End of updateUser---------------------------------------");
 	}
 	
 
@@ -135,7 +143,7 @@ public class UserServiceTest{
     }
 
     @AfterAll
-    public static void clearuserService(){
+    public static void clearUserService(){
         userService = null;
     }
 }

@@ -23,7 +23,7 @@
 		
 		<!-- Mapping Entity Classes (Making the SF aware of these entities) -->
 		<mapping class="com.revature.models.User"/>
-		<mapping class="com.revature.models.Invoice"/>
+		<mapping class="com.revature.models.Ticket"/>
 	</session-factory>
 
 </hibernate-configuration>
