@@ -1,6 +1,13 @@
 # Run Simple Server for Testing
 python3 -m http.server
 
+
+
+
+
+
+
+
 # User
 int:         id
 String:      username
@@ -37,3 +44,8 @@ LODGING
 TRAVEL
 FOOD
 OTHER
+
+# Disable caching (dev mode)
+
+Include "?2" after ".js" when referencing script file
+ex) "main.js?2"
