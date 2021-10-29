@@ -28,7 +28,4 @@ public class _UserController implements Controller{
 	public void addRoutes(Javalin app) {
 		app.post("/login", this.loginAttempt);
 	}
-	
-	
-
 }

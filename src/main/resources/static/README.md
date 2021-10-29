@@ -1,13 +1,6 @@
 # Run Simple Server for Testing
 python3 -m http.server
 
-
-
-
-
-
-
-
 # User
 int:         id
 String:      username

@@ -13,13 +13,13 @@ public class TicketController implements Controller{
 	private TicketService ticketService = new TicketService();
 	
 	public Handler findAllTickets = (ctx) -> {
-		if (ctx.req.getSession(false) != null) {
+		// if (ctx.req.getSession(false) != null) {
 			List<Ticket> list = ticketService.getAllTickets();
 			ctx.json(list);
 			ctx.status(200);
-		} else {
-			ctx.status(401);
-		}
+		// } else {
+		// 	ctx.status(401);
+		// }
 	};
 	
 	public Handler getTicket = (ctx) -> {
