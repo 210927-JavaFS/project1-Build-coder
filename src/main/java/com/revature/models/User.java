@@ -67,11 +67,11 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 
@@ -115,7 +115,7 @@ public class User {
         result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
         result = prime * result + id;
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-        result = prime * result + ((password == null) ? 0 : password.hashCode());
+        result = prime * result + password;
         result = prime * result + ((role == null) ? 0 : role.hashCode());
         result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         return result;
@@ -147,10 +147,7 @@ public class User {
                 return false;
         } else if (!lastName.equals(other.lastName))
             return false;
-        if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
+        if (password != other.password)
             return false;
         if (role != other.role)
             return false;
@@ -166,7 +163,8 @@ public class User {
     public String toString() {
         return "User [email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName
                 + ", password=" + password + ", role=" + role + ", userName=" + userName + "]";
-    }    
+    }
+  
 }
 
     

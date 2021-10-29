@@ -1,83 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Bank Employee Reimbursement</title>
+    <title>Employee Reimbursement Portal</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
     crossorigin="anonymous">
-  </head>
-  <body class="container-fluid">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+
+
+    <!-- Login Interface -->
     <div class="formClass">
-      <form class="form-control">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-      </form>
-      <button class="btn btn-danger" id="loginButton">Login</button>
+        <form class="form-control">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </form>
+        <button class="btn btn-danger" id="loginButton">Login</button>
     </div>
-    <div class="row" id="buttonRow">
+    <div class="row" id="buttonRow"></div>    
+
+    <!-- Button to toggle View Tickets on/off -->
+    <div id="myDIV">
+    
+    <!-- Table of Tickets -->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Select</th>
+            <th scope="col">Ticket ID</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Submitted</th>
+            <th scope="col">Resolved</th>
+            <th scope="col">Description</th>
+            <th scope="col">Receipt</th>
+            <th scope="col">Author</th>
+            <th scope="col">Resolver</th>
+            <th scope="col">Status</th>
+            <th scope="col">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><label class="container">
+                <input type="checkbox" check="checked">
+                <span class="checkmark"></span>
+            </label></th>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th><label class="container">
+                <input type="checkbox" check="checked">
+                <span class="checkmark"></span>
+            </label></th>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@MySpace</td>
+          </tr>
+          <tr>
+            <th><label class="container">
+                <input type="checkbox" check="checked">
+                <span class="checkmark"></span>
+            </label></th>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- Drop Down Menu to Filter Tickets by Status -->
+      <div class="dropdown">
+        <button onclick="displayMenu()" class="dropbtn">Filter by Status</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#home">PENDING</a>
+          <a href="#about">APPROVED</a>
+          <a href="#contact">DENIED</a>
+        </div>
+      </div>
 
     </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-            <th class="col-sm-2">Invoice ID</th>
-            <th class="col-sm-2">Amount</th>
-            <th class="col-sm-2">Submitted Time</th>
-            <th class="col-sm-2">Resolved Time</th>
-            <th class="col-sm-2">Description</th>
-            <th class="col-sm-1">Receipt</th>
-            <th class="col-sm-1">Author</th>
-            <th class="col-sm-1">Resolver</th>
-            <th class="col-sm-1">Status</th>
-            <th class="col-sm-1">Type</th>
-        </tr>
-      </thead>
-      <tbody id="invoiceBody">
-      </tbody>
-    </table>
-    <br>
-    <br>
-    <table class="table">
-      <thead>
-        <tr>
-            <th class="col-sm-1">User ID</th>
-            <th class="col-sm-2">User Name</th>
-            <th class="col-sm-1">First Name</th>
-            <th class="col-sm-1">Last Name</th>
-            <th class="col-sm-1">Password</th>
-            <th class="col-sm-6">Role</th>
-        </tr>
-      </thead>
-      <tbody id="userBody">
-      </tbody>
-    </table>
+    <!-- Approve/Deny, View/Hide Buttons -->
+    <div class="center">
+        <button onclick="approveTickets()">Approve</button>
+        <button onclick="denyTickets()">Deny</button>
 
-    <br>
-    <br>
+        <!-- All Tickets can only be called if Finacial Manager creds are used -->
+        <button onclick="displayAllTickets()">View/Hide All Tickets</button>
+        <button onclick="displayTickets()">View/Hide Your Tickets</button>
+    </div>
 
-    <form class="form-control">
-      <label for="userName">New User's Name</label>
-      <input type="text" id="userName" name="userName">
-      <label for="firstName">User's First Name</label>
-      <input type="text" id="firstName" name="firstName">
-      <label for="lastName">User's Last Name</label>
-      <input type="text" id="lastName" name="lastName">
-      <label for="password">User's Password</label>
-      <input type="text" id="password" name="password">
-      <label for="email">User's Email</label>
-      <input type="text" id="email" name="email">
-      <label for="role">User's Role</label>
-      <input type="text" id="role" name="role">
+
+</div>
+<br><br><br><br>
+
+  <!-- Form to Submit a Ticket -->
+    <h1>Submit a Ticket</h1>
+    <form>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="amount">Amount</label>
+            <input type="email" class="form-control" id="ticketAmount" placeholder="50.00">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="decription">Description</label>
+            <input type="text" class="form-control" id="ticketDesc" placeholder="
+            Why is this a business expense?">
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Type</label>
+            <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>LODGING</option>
+            <option>TRAVEL</option>
+            <option>FOOD</option>
+            <option>OTHER</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <button class="btn btn-primary" id="addUserButton">Add a User</button>
 
-    <script src="main.js"></script>
-  </body>
+</body>
+
+<script src="main.js"></script>
+
+</body>
 </html>
