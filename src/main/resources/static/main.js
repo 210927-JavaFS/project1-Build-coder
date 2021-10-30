@@ -4,7 +4,7 @@ let URL = "http://localhost:8081/";
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function displayMenu() {
+function displayStatuses() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
@@ -48,7 +48,38 @@ function displayMenu() {
 
     if(response.status === 200){
       let data = await response.json();
-      console.log(JSON.stringify(data));
+      populateTable(data);
+    }else{
+      console.log("Could not get tickets");
+    }
+  }
+
+  async function getTicketsByStatus(id){
+    
+    let path = "";
+
+    switch (id) {
+      case 'p':
+      path="ticketsByPending";
+      break;
+
+      case 'a':
+      path="ticketsByApproved";
+      break;
+
+      case 'd':
+      path="ticketsByDenied";
+      break;
+  
+      default:
+        break;
+    }
+
+    let response = await fetch(URL+path);
+    // let response = await fetch(URL+"tickets", {credentials:"include"});
+
+    if(response.status === 200){
+      let data = await response.json();
       populateTable(data);
     }else{
       console.log("Could not get tickets");
@@ -57,10 +88,11 @@ function displayMenu() {
 
   function populateTable(data){
     let tbody = document.getElementById("ticketTable");
-  
+
     // clear table
     tbody.innerHTML="";
 
+    // build table headers for each col
     let labels = ["Select","Ticket ID", "Amount", "Submitted",
     "Resolved", "Description", "Receipt", "Author", "Resolver",
     "Status", "Type"];
@@ -75,31 +107,34 @@ function displayMenu() {
       let th = document.createElement("th");
       th.scope="col"
       th.innerText = labels[index];
+
+      // save table header
       tr.appendChild(th);     
     }
-
-    let head = document.createElement("th");
-    let label = document.createElement("label");
-    label.className = "container";
-
   
     for(let ticket of data){
-      let row = document.createElement("tr");
+      let createRow = true;
 
+      // build check box for each row
+      let row = document.createElement("tr");
       let th = document.createElement("th");
       let label = document.createElement("label");
-      th.appendChild(label);
-      label.className = "container";
       let input = document.createElement("input");
+      let span = document.createElement("span");
+
+      label.className = "container";
       input.type = "checkbox";
       input.check = "checked";
-      label.appendChild(input);
-      let span = document.createElement("span");
       span.className = "checkmark";
+
+      th.appendChild(label);
+      label.appendChild(input);
       label.appendChild(span);
 
+      // save check box
       row.appendChild(th);
   
+      // put each field into row of table
       for(let cell in ticket){
         let td = document.createElement("td");
         if(cell!="ticket"){
@@ -117,8 +152,11 @@ function displayMenu() {
           ${ticket[cell].status}
           ${ticket[cell].type}`
         }
+
         row.appendChild(td);
       }
+     
       tbody.appendChild(row);
     }
   }
+

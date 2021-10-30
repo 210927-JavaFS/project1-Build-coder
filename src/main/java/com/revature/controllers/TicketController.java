@@ -21,6 +21,34 @@ public class TicketController implements Controller{
 		// 	ctx.status(401);
 		// }
 	};
+
+	public Handler findAllTicketsByPending = (ctx) -> {
+		// if (ctx.req.getSession(false) != null) {
+			List<Ticket> list = ticketService.getAllTicketsByPending();
+			ctx.json(list);
+			ctx.status(200);
+		// } else {
+		// 	ctx.status(401);
+		// }
+	};
+	public Handler findAllTicketsByApproved= (ctx) -> {
+		// if (ctx.req.getSession(false) != null) {
+			List<Ticket> list = ticketService.getAllTicketsByApproved();
+			ctx.json(list);
+			ctx.status(200);
+		// } else {
+		// 	ctx.status(401);
+		// }
+	};
+	public Handler findAllTicketsByDenied = (ctx) -> {
+		// if (ctx.req.getSession(false) != null) {
+			List<Ticket> list = ticketService.getAllTicketsByDenied();
+			ctx.json(list);
+			ctx.status(200);
+		// } else {
+		// 	ctx.status(401);
+		// }
+	};
 	
 	public Handler getTicket = (ctx) -> {
 		if (ctx.req.getSession(false) != null) {
@@ -88,6 +116,9 @@ public class TicketController implements Controller{
 	@Override
 	public void addRoutes(Javalin app) {
 		app.get("/tickets", this.findAllTickets);
+		app.get("/ticketsByPending", this.findAllTicketsByPending);
+		app.get("/ticketsByApproved", this.findAllTicketsByApproved);
+		app.get("/ticketsByDenied", this.findAllTicketsByDenied);
 		app.get("/tickets/:ticket", this.getTicket);
 		app.post("/tickets", this.addTicket);
 		app.put("/tickets", this.updateTicket);

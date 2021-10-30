@@ -17,6 +17,20 @@ public class TicketDAOImpl{
 		return session.createQuery("FROM Ticket").list();
 	}
 
+	public List<Ticket> findAllTicketsByPending() {
+		Session session = HibernateUtil.getSession();
+		return session.createQuery("FROM Ticket t WHERE t.status = 'PENDING'").list();
+	}
+
+	public List<Ticket> findAllTicketsByApproved() {
+		Session session = HibernateUtil.getSession();
+		return session.createQuery("FROM Ticket t WHERE t.status = 'APPROVED'").list();
+	}
+
+	public List<Ticket> findAllTicketsByDenied() {
+		Session session = HibernateUtil.getSession();
+		return session.createQuery("FROM Ticket t WHERE t.status = 'DENIED'").list();
+	}
 	
 	public Ticket findById(int id) {
 		Session session = HibernateUtil.getSession();

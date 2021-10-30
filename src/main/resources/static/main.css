@@ -28,14 +28,14 @@
     z-index: 1;
   }
   
-  .dropdown-content a {
+  .dropdown-content button {
     color: black;
-    padding: 12px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     display: block;
   }
   
-  .dropdown a:hover {background-color: #ddd;}
+  .dropdown button:hover {background-color: #ddd;}
   
   .show {display: block;}
 

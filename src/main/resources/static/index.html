@@ -33,68 +33,24 @@
     
     <!-- Table of Tickets -->
     <table id="ticketTable" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Select</th>
-            <th scope="col">Ticket ID</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Submitted</th>
-            <th scope="col">Resolved</th>
-            <th scope="col">Description</th>
-            <th scope="col">Receipt</th>
-            <th scope="col">Author</th>
-            <th scope="col">Resolver</th>
-            <th scope="col">Status</th>
-            <th scope="col">Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th><label class="container">
-                <input type="checkbox" check="checked">
-                <span class="checkmark"></span>
-            </label></th>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th><label class="container">
-                <input type="checkbox" check="checked">
-                <span class="checkmark"></span>
-            </label></th>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@MySpace</td>
-          </tr>
-          <tr>
-            <th><label class="container">
-                <input type="checkbox" check="checked">
-                <span class="checkmark"></span>
-            </label></th>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      <tbody>
+      </tbody>
+    </table>
 
 
-      <!-- Drop Down Menu to Filter Tickets by Status -->
-      <div class="dropdown">
-        <button onclick="displayMenu()" class="dropbtn">Filter by Status</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#home">PENDING</a>
-          <a href="#about">APPROVED</a>
-          <a href="#contact">DENIED</a>
-        </div>
+    <!-- Drop Down Menu to Filter Tickets by Status -->
+    <div class="dropdown">
+      <button onclick="displayStatuses()" class="dropbtn">Filter by Status</button>
+      <div id="myDropdown" class="dropdown-content">
+        <button id="p" onclick="getTicketsByStatus(id)">PENDING</button>
+        <button id="a" onclick="getTicketsByStatus(id)">APPROVED</button>
+        <button id="d" onclick="getTicketsByStatus(id)">DENIED</button>
       </div>
+    </div>
 
-      <!-- Approve/Deny Buttons -->
-      <button onclick="approveTickets()">Approve</button>
-      <button onclick="denyTickets()">Deny</button>
+    <!-- Approve/Deny Buttons -->
+    <button onclick="approveTickets()">Approve</button>
+    <button onclick="denyTickets()">Deny</button>
 
     </div>
 
@@ -102,7 +58,7 @@
     <div class="center">
         <!-- All Tickets can only be called if Finacial Manager creds are used -->
         <button onclick="displayAllTickets()">View/Hide All Tickets</button>
-        <button onclick="displayTickets()">View/Hide Your Tickets</button>
+        <button onclick="displayYourTickets()">View/Hide Your Tickets</button>
     </div>
 
 

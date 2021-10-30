@@ -12,10 +12,10 @@
             "projectName": "project1"
         },
         {
+            "name": "Attach to Chrome",
+            "port": 8081,
+            "request": "attach",
             "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
         }
     ]

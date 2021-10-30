@@ -34,13 +34,13 @@ public class TicketServiceTest{
 
     Ticket ticket;
     Ticket ticket1 = new Ticket(1,50,date,date,"desc","receipt",author,
-    resolver, Status.PENDING,Type.LODGING);
+    resolver, Status.APPROVED,Type.LODGING);
     Ticket ticket2 = new Ticket(2,75,date,date,"desc","receipt",author,
     resolver, Status.PENDING,Type.LODGING);
     Ticket ticket3 = new Ticket(3,100.25,date,date,"desc","receipt",author,
         resolver, Status.PENDING,Type.LODGING);
     Ticket ticket4 = new Ticket(4,100.50,date,date,"desc","receipt",author,
-        resolver, Status.PENDING,Type.LODGING);
+        resolver, Status.DENIED,Type.LODGING);
     Ticket ticket5 = new Ticket(5,100.75,date,date,"desc","receipt",author,
         resolver, Status.PENDING,Type.LODGING);
     Ticket ticket6 = new Ticket(6,200,date,date,"desc","receipt",author,
