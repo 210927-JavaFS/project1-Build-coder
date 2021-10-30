@@ -122,4 +122,10 @@
   .center{
     text-align: center;
   }
-  
+
+  /* End of Div to Center Content */
+
+  .form-row{
+    margin: 0 auto;
+    float:none;
+  }

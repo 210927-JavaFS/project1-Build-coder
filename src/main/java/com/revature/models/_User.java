@@ -1,5 +1,7 @@
 package com.revature.models;
 
+// this will be replaced by User
+
 public class _User {
 	
 	private String username;

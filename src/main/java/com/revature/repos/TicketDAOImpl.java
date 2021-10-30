@@ -18,6 +18,7 @@ public class TicketDAOImpl{
 	}
 
 	public List<Ticket> findAllTicketsByPending() {
+		// String status = "PENDING";
 		Session session = HibernateUtil.getSession();
 		return session.createQuery("FROM Ticket t WHERE t.status = 'PENDING'").list();
 	}

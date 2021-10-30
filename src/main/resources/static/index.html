@@ -14,10 +14,10 @@
 </head>
 
 <body class="container-fluid">
-
+  <!-- <div class="center"> -->
 
     <!-- Login Interface -->
-    <div class="formClass">
+    <div id="login" class="formClass">
         <form class="form-control">
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
@@ -56,14 +56,11 @@
     </div>
 
     <!-- View/Hide Buttons -->
-    <div class="center">
-        <!-- All Tickets can only be called if Finacial Manager creds are used -->
-        <button onclick="displayAllTickets()">View/Hide All Tickets</button>
-        <button onclick="displayYourTickets()">View/Hide Your Tickets</button>
-    </div>
+    <!-- All Tickets can only be called if Finacial Manager creds are used -->
+    <button onclick="displayAllTickets()">View/Hide All Tickets</button>
+    <button onclick="displayYourTickets()">View/Hide Your Tickets</button>
+  <!-- </div> -->
 
-
-</div>
 <br><br><br><br>
 
   <!-- Form to Submit a Ticket -->
@@ -93,7 +90,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
 </body>
 
 <script src="main.js?2"></script>

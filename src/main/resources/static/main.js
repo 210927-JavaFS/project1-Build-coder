@@ -1,6 +1,34 @@
 
 let URL = "http://localhost:8081/";
 
+// login 
+let loginButton = document.getElementById('loginButton');
+loginButton.onclick = loginToApp;
+
+async function loginToApp(){
+  let user = {
+    username:document.getElementById("username").value,
+    password:document.getElementById("password").value
+  }
+
+  let response = await fetch(URL+"login", {
+    method:"POST",
+    body:JSON.stringify(user),
+    credentials:"include"
+  });
+
+  if (response.status===200) {
+    document.getElementById("login").innerHTML="";
+    // buttonRow.appendChild(displayAllTicketsBtn);
+    // buttonRow.appendChild(displayYourTicketsBtn);
+  } else{
+    let para = document.createElement("p");
+    para.setAttribute("style","color:red");
+    para.innerText="LOGIN FAILED";
+    document.getElementById("login").appendChild(para);
+  }
+}
+
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -43,8 +71,8 @@ function displayStatuses() {
 
 
   async function getTickets(){
-    let response = await fetch(URL+"tickets");
-    // let response = await fetch(URL+"tickets", {credentials:"include"});
+    // let response = await fetch(URL+"tickets");
+    let response = await fetch(URL+"tickets", {credentials:"include"});
 
     if(response.status === 200){
       let data = await response.json();
@@ -57,6 +85,7 @@ function displayStatuses() {
   async function getTicketsByStatus(id){
     
     let path = "";
+    let status = "";
 
     switch (id) {
 
@@ -66,10 +95,12 @@ function displayStatuses() {
 
       case 'approved':
       path="ticketsByApproved";
+      status="APPROVED"
       break;
 
       case 'denied':
       path="ticketsByDenied";
+      status="DENIED"
       break;
   
       default:
