@@ -59,15 +59,16 @@ function displayStatuses() {
     let path = "";
 
     switch (id) {
-      case 'p':
+
+      case 'pending':
       path="ticketsByPending";
       break;
 
-      case 'a':
+      case 'approved':
       path="ticketsByApproved";
       break;
 
-      case 'd':
+      case 'denied':
       path="ticketsByDenied";
       break;
   
@@ -113,7 +114,10 @@ function displayStatuses() {
     }
   
     for(let ticket of data){
-      let createRow = true;
+
+      /**
+       * tbody > row > th > label > input > span
+       */
 
       // build check box for each row
       let row = document.createElement("tr");
@@ -160,3 +164,24 @@ function displayStatuses() {
     }
   }
 
+  // function findAllCheckedBoxes(){
+  //   let tbody = document.getElementById("ticketTable");
+  //   let elem = document.getElementById("myDropdown");
+  //   let myDiv = document.getElementById("myDiv");
+
+  //   console.log("in findAllCheckBoxes");
+  //   /**
+  //    * tbody > row > th > label > input > span
+  //    * input.type, input.check
+  //    * 
+  //    * tbody > label > input/span > 
+  //    */
+
+  //   console.log(myDiv); // should be label
+
+  // }
+
+  // function approveTickets(){
+  //   let tbody = document.getElementById("ticketTable");
+
+  // }

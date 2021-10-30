@@ -50,3 +50,185 @@
 21:07:00.776 [] [qtp1072410641-15] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 21:07:01.574 [] [qtp1072410641-15] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6df75f35] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 21:07:01.726 [] [qtp1072410641-15] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+21:08:51.027 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @614ms to org.eclipse.jetty.util.log.Slf4jLog
+21:08:51.146 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+21:08:51.237 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+21:08:51.240 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+21:08:51.553 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+21:08:51.557 [] [main] INFO  io.javalin.Javalin - Javalin started in 319ms \o/
+21:08:54.154 [] [qtp1072410641-17] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+21:08:54.771 [] [qtp1072410641-17] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+21:08:54.943 [] [qtp1072410641-17] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+21:08:54.953 [] [qtp1072410641-17] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+21:08:54.954 [] [qtp1072410641-17] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+21:08:54.955 [] [qtp1072410641-17] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+21:08:54.960 [] [qtp1072410641-17] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+21:08:55.515 [] [qtp1072410641-17] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+21:08:56.315 [] [qtp1072410641-17] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b160216] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:08:56.456 [] [qtp1072410641-17] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+21:10:55.798 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @700ms to org.eclipse.jetty.util.log.Slf4jLog
+21:10:55.963 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+21:10:56.073 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+21:10:56.075 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+21:10:56.349 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+21:10:56.350 [] [main] INFO  io.javalin.Javalin - Javalin started in 276ms \o/
+21:10:58.032 [] [qtp1072410641-14] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+21:10:58.698 [] [qtp1072410641-14] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+21:10:58.919 [] [qtp1072410641-14] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+21:10:58.931 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+21:10:58.932 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+21:10:58.933 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+21:10:58.936 [] [qtp1072410641-14] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+21:10:59.620 [] [qtp1072410641-14] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+21:11:00.429 [] [qtp1072410641-14] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1e198ecf] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:11:00.692 [] [qtp1072410641-14] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+21:12:40.733 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @909ms to org.eclipse.jetty.util.log.Slf4jLog
+21:12:40.868 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+21:12:41.007 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+21:12:41.014 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+21:12:41.304 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+21:12:41.304 [] [main] INFO  io.javalin.Javalin - Javalin started in 297ms \o/
+21:12:42.446 [] [qtp1072410641-20] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+21:12:43.188 [] [qtp1072410641-20] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+21:12:43.419 [] [qtp1072410641-20] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+21:12:43.438 [] [qtp1072410641-20] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+21:12:43.439 [] [qtp1072410641-20] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+21:12:43.440 [] [qtp1072410641-20] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+21:12:43.448 [] [qtp1072410641-20] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+21:12:44.030 [] [qtp1072410641-20] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+21:12:44.819 [] [qtp1072410641-20] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@391a903f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+21:12:44.968 [] [qtp1072410641-20] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+22:27:56.545 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @636ms to org.eclipse.jetty.util.log.Slf4jLog
+22:27:56.650 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+22:27:56.730 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+22:27:56.732 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:27:56.982 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+22:27:56.983 [] [main] INFO  io.javalin.Javalin - Javalin started in 252ms \o/
+22:28:27.583 [] [qtp1072410641-21] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+22:28:28.145 [] [qtp1072410641-21] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+22:28:28.319 [] [qtp1072410641-21] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:28:28.328 [] [qtp1072410641-21] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+22:28:28.337 [] [qtp1072410641-21] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+22:28:28.340 [] [qtp1072410641-21] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:28:28.345 [] [qtp1072410641-21] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+22:28:28.958 [] [qtp1072410641-21] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+22:28:29.701 [] [qtp1072410641-21] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3e67387c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:28:29.834 [] [qtp1072410641-21] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+22:29:47.446 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @615ms to org.eclipse.jetty.util.log.Slf4jLog
+22:29:47.580 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+22:29:47.658 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+22:29:47.663 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:29:47.929 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+22:29:47.930 [] [main] INFO  io.javalin.Javalin - Javalin started in 269ms \o/
+22:29:49.022 [] [qtp1072410641-14] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+22:29:49.640 [] [qtp1072410641-14] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+22:29:49.867 [] [qtp1072410641-14] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:29:49.876 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+22:29:49.879 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+22:29:49.879 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:29:49.886 [] [qtp1072410641-14] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+22:29:50.396 [] [qtp1072410641-14] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+22:29:51.177 [] [qtp1072410641-14] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@59ad00e2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:29:51.451 [] [qtp1072410641-14] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+22:33:53.077 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @582ms to org.eclipse.jetty.util.log.Slf4jLog
+22:33:53.208 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+22:33:53.294 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+22:33:53.296 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:33:53.569 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+22:33:53.570 [] [main] INFO  io.javalin.Javalin - Javalin started in 275ms \o/
+22:33:56.432 [] [qtp1072410641-19] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+22:33:57.032 [] [qtp1072410641-19] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+22:33:57.247 [] [qtp1072410641-19] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:33:57.256 [] [qtp1072410641-19] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+22:33:57.263 [] [qtp1072410641-19] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+22:33:57.264 [] [qtp1072410641-19] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:33:57.271 [] [qtp1072410641-19] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+22:33:57.844 [] [qtp1072410641-19] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+22:33:58.619 [] [qtp1072410641-19] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@525dbe3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:33:58.774 [] [qtp1072410641-19] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+22:36:07.168 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @654ms to org.eclipse.jetty.util.log.Slf4jLog
+22:36:07.277 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/prodo/Desktop/Revature/training/projects/project1-Build-coder/target/classes/static/'
+22:36:07.352 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+22:36:07.354 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:36:07.604 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+22:36:07.606 [] [main] INFO  io.javalin.Javalin - Javalin started in 254ms \o/
+22:36:08.522 [] [qtp1072410641-14] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+22:36:09.245 [] [qtp1072410641-14] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+22:36:09.455 [] [qtp1072410641-14] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+22:36:09.463 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.cqx6krx3pgbu.us-east-1.rds.amazonaws.com:5432/project1]
+22:36:09.465 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+22:36:09.466 [] [qtp1072410641-14] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+22:36:09.471 [] [qtp1072410641-14] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+22:36:10.051 [] [qtp1072410641-14] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+22:36:10.826 [] [qtp1072410641-14] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@76a36469] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+22:36:10.983 [] [qtp1072410641-14] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

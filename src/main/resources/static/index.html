@@ -34,6 +34,7 @@
     <!-- Table of Tickets -->
     <table id="ticketTable" class="table">
       <tbody>
+    
       </tbody>
     </table>
 
@@ -42,9 +43,9 @@
     <div class="dropdown">
       <button onclick="displayStatuses()" class="dropbtn">Filter by Status</button>
       <div id="myDropdown" class="dropdown-content">
-        <button id="p" onclick="getTicketsByStatus(id)">PENDING</button>
-        <button id="a" onclick="getTicketsByStatus(id)">APPROVED</button>
-        <button id="d" onclick="getTicketsByStatus(id)">DENIED</button>
+        <button id="pending" onclick="getTicketsByStatus(id)">PENDING</button>
+        <button id="approved" onclick="getTicketsByStatus(id)">APPROVED</button>
+        <button id="denied" onclick="getTicketsByStatus(id)">DENIED</button>
       </div>
     </div>
 
