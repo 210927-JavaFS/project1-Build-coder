@@ -31,16 +31,10 @@ public class UserDAOImpl{
 
 	
 	public User findByName(String user_name) {
-		// myLogger.info("UserDAOBefore:name: " + user_name);
-		// Session session = HibernateUtil.getSession();
-		// myLogger.info("UserDAOAfter:name: " + user_name);
-		// return session.get(User.class, user_name);
-
 		Session session = HibernateUtil.getSession();
 		Query query = session.createQuery("FROM User u WHERE u.userName =:user_name");
 		query.setParameter("user_name", user_name);
-		return (User) query.getSingleResult();
-		
+		return (User) query.getSingleResult();	
 	}
 
 	

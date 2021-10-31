@@ -3,7 +3,7 @@ package com.revature;
 import com.revature.controllers.TicketController;
 import com.revature.controllers.Controller;
 import com.revature.controllers.UserController;
-import com.revature.controllers._UserController;
+import com.revature.controllers.LoginController;
 
 
 import io.javalin.Javalin;
@@ -18,7 +18,7 @@ public class App {
 			config.addStaticFiles("/static", Location.CLASSPATH);
 		});
 		
-		configure(new UserController(), new TicketController(), new _UserController());
+		configure(new UserController(), new TicketController(), new LoginController());
 		
 		app.start(8081);
 

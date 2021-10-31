@@ -1,6 +1,7 @@
 
 let URL = "http://localhost:8081/";
 
+
 // login 
 let loginButton = document.getElementById('loginButton');
 loginButton.onclick = loginToApp;
@@ -18,7 +19,11 @@ async function loginToApp(){
   });
 
   if (response.status===200) {
+    // initSession();
     document.getElementById("login").innerHTML="";
+    document.getElementById("access_denied").innerHTML="";
+    
+ 
     // buttonRow.appendChild(displayAllTicketsBtn);
     // buttonRow.appendChild(displayYourTicketsBtn);
   } else{
@@ -51,13 +56,21 @@ function displayStatuses() {
   }
 
   function displayAllTickets() {
-    getTickets();
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    // if ((sessionStorage.getItem("currentUserRole"))==="MANAGER") {
+      getTickets();
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    // } else {
+      document.getElementById("access_denied").innerHTML="";
+      let para = document.createElement("p");
+      para.setAttribute("style","color:red");
+      para.innerText="UNAUTHORIZED ACCESS!";
+      document.getElementById("access_denied").appendChild(para);
+    // }
   }
 
   /**
@@ -65,9 +78,9 @@ function displayStatuses() {
    * displayed so this hides it when page
    * loads
    */
-  window.onload = function() {
-    displayAllTickets();
-  };
+  // window.onload = function() {
+  //   displayAllTickets();
+  // };
 
 
   async function getTickets(){
@@ -195,24 +208,14 @@ function displayStatuses() {
     }
   }
 
-  // function findAllCheckedBoxes(){
-  //   let tbody = document.getElementById("ticketTable");
-  //   let elem = document.getElementById("myDropdown");
-  //   let myDiv = document.getElementById("myDiv");
+  async function initSession(){
+    let response = await fetch(URL+"users/:user", {credentials:"include"});
 
-  //   console.log("in findAllCheckBoxes");
-  //   /**
-  //    * tbody > row > th > label > input > span
-  //    * input.type, input.check
-  //    * 
-  //    * tbody > label > input/span > 
-  //    */
-
-  //   console.log(myDiv); // should be label
-
-  // }
-
-  // function approveTickets(){
-  //   let tbody = document.getElementById("ticketTable");
-
-  // }
+    if(response.status === 200){
+      sessionStorage.clear();
+      let data = await response.json();
+      sessionStorage.setItem("currentUserRole",data.role);
+    }else{
+      console.log("Could not get user");
+    }
+  }
