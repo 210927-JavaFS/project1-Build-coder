@@ -2,19 +2,33 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.revature.models.Ticket;
 import com.revature.services.TicketService;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TicketController implements Controller{
+
+	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
+
     
 	private TicketService ticketService = new TicketService();
 	
+	@JsonIgnore 
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	public Handler findAllTickets = (ctx) -> {
 		if (ctx.req.getSession(false) != null) {
+			myLogger.info("in TicketController:findAllTickets()");
+
 			List<Ticket> list = ticketService.getAllTickets();
+			myLogger.info(list.get(0).getAmount() + " first ticket and it's amount retrieved from DAO");
+			myLogger.info(list.get(0).getAuthor().getUserName() + " user name of author of first ticket");
 			ctx.json(list);
 			ctx.status(200);
 		} else {

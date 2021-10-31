@@ -10,6 +10,7 @@ import com.revature.services.TicketService;
 import com.revature.models.User;
 import com.revature.models.Ticket.Status;
 import com.revature.models.Ticket.Type;
+import com.revature.models.User.Role;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -32,19 +33,25 @@ public class TicketServiceTest{
     User author;
     User resolver;
 
+    User author1 = new User(1,"agent smith", "pass1".hashCode(), "agent", "smith", "humansSuck@gmail.com", Role.EMPLOYEE);
+    User author2 = new User(2,"oracle", "pass2".hashCode(), "the", "oracle", "knowThyself@gmail.com", Role.EMPLOYEE);
+    User author3 = new User(3,"neo one", "pass3".hashCode(), "the", "one", "theOne@gmail.com", Role.MANAGER);
+    User author4 = new User(4,"morpheus", "pass4".hashCode(), "morph", "us", "morphUs@gmail.com", Role.MANAGER);
+
+
     Ticket ticket;
-    Ticket ticket1 = new Ticket(1,50,date,date,"desc","receipt",author,
+    Ticket ticket1 = new Ticket(1,50,date,date,"desc","receipt",author1,
     resolver, Status.APPROVED,Type.LODGING);
-    Ticket ticket2 = new Ticket(2,75,date,date,"desc","receipt",author,
-    resolver, Status.PENDING,Type.LODGING);
-    Ticket ticket3 = new Ticket(3,100.25,date,date,"desc","receipt",author,
+    Ticket ticket2 = new Ticket(2,75,date,date,"desc","receipt",author2,
+    resolver, Status.PENDING,Type.OTHER);
+    Ticket ticket3 = new Ticket(3,100.25,date,date,"desc","receipt",author3,
         resolver, Status.PENDING,Type.LODGING);
-    Ticket ticket4 = new Ticket(4,100.50,date,date,"desc","receipt",author,
-        resolver, Status.DENIED,Type.LODGING);
-    Ticket ticket5 = new Ticket(5,100.75,date,date,"desc","receipt",author,
-        resolver, Status.PENDING,Type.LODGING);
-    Ticket ticket6 = new Ticket(6,200,date,date,"desc","receipt",author,
-        resolver, Status.PENDING,Type.LODGING);
+    Ticket ticket4 = new Ticket(4,100.50,date,date,"desc","receipt",author4,
+        resolver, Status.DENIED,Type.TRAVEL);
+    Ticket ticket5 = new Ticket(5,100.75,date,date,"desc","receipt",author1,
+        resolver, Status.PENDING,Type.OTHER);
+    Ticket ticket6 = new Ticket(6,200,date,date,"desc","receipt",author2,
+        resolver, Status.PENDING,Type.FOOD);
     Ticket ticketDB;
     boolean testPass;
 
@@ -59,7 +66,7 @@ public class TicketServiceTest{
         ticket = null;
         ticketDB = null;
         ticketsDB = null;
-        tickets = Arrays.asList(ticket1,ticket2,ticket3,ticket4);
+        tickets = Arrays.asList(ticket1,ticket2,ticket3,ticket4,ticket5,ticket6);
     }
 
     @Test
@@ -102,6 +109,12 @@ public class TicketServiceTest{
         assertTrue(testPass);
 
         testPass = ticketService.addTicket(ticket4);
+        assertTrue(testPass);
+
+        testPass = ticketService.addTicket(ticket5);
+        assertTrue(testPass);
+        
+        testPass = ticketService.addTicket(ticket6);
         assertTrue(testPass);
 
         ticketsDB = ticketService.getAllTickets();

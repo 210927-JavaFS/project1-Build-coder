@@ -65,11 +65,13 @@ function displayStatuses() {
         x.style.display = "none";
       }
     // } else {
-      document.getElementById("access_denied").innerHTML="";
-      let para = document.createElement("p");
-      para.setAttribute("style","color:red");
-      para.innerText="UNAUTHORIZED ACCESS!";
-      document.getElementById("access_denied").appendChild(para);
+      if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
+        document.getElementById("access_denied").innerHTML="";
+        let para = document.createElement("p");
+        para.setAttribute("style","color:red");
+        para.innerText="UNAUTHORIZED ACCESS!";
+        document.getElementById("access_denied").appendChild(para);
+      }
     // }
   }
 
@@ -81,7 +83,6 @@ function displayStatuses() {
   // window.onload = function() {
   //   displayAllTickets();
   // };
-
 
   async function getTickets(){
     // let response = await fetch(URL+"tickets");
@@ -159,10 +160,6 @@ function displayStatuses() {
   
     for(let ticket of data){
 
-      /**
-       * tbody > row > th > label > input > span
-       */
-
       // build check box for each row
       let row = document.createElement("tr");
       let th = document.createElement("th");
@@ -183,30 +180,29 @@ function displayStatuses() {
       row.appendChild(th);
   
       // put each field into row of table
-      for(let cell in ticket){
-        let td = document.createElement("td");
-        if(cell!="ticket"){
-          td.innerText=ticket[cell];
-        }else if(ticket[cell]){
-          td.innerHTML = 
-          `${ticket[cell].id}:
-          ${ticket[cell].amount} 
-          ${ticket[cell].submitted} 
-          ${ticket[cell].resolved} 
-          ${ticket[cell].desc} 
-          ${ticket[cell].receipt} 
-          ${ticket[cell].author}
-          ${ticket[cell].resolver}
-          ${ticket[cell].status}
-          ${ticket[cell].type}`
-        }
+      let td = document.createElement("td");
+      let values = Object.values(ticket);
+      let author = Object.values(values[6]); 
+      let x = author[1];
+      console.log(values);
+      console.log(author);
+      console.log(author[1]);
 
-        row.appendChild(td);
-      }
-     
+        for (let i = 0; i < values.length; i++) {
+          
+          if (i=6) {
+            td.innerText=x;
+          } else{
+            td.innerText=values[i];
+          }
+
+          row.appendChild(td);
+
+        }
+    
       tbody.appendChild(row);
+      }
     }
-  }
 
   async function initSession(){
     let response = await fetch(URL+"users/:user", {credentials:"include"});

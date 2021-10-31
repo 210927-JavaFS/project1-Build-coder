@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 /**
@@ -32,8 +35,9 @@ public class Ticket {
     @Column(name="ticket_resolved") @CreationTimestamp @Temporal(TemporalType.TIMESTAMP) private Date resolved;
     @Column(name="ticket_desc") private String desc;
     @Column(name="ticket_receipt") private String receipt;
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="author_id") private User author;
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name="resolver_id") private User resolver;
+    // @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name="author_id") private User author;
+    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name="resolver_id") private User resolver;
     @Enumerated(EnumType.STRING) @Column(name="ticket_stat") private Status status;
     @Enumerated(EnumType.STRING) @Column(name="ticket_type") private Type type;
 

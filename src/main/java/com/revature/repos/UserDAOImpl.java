@@ -19,6 +19,7 @@ public class UserDAOImpl{
 
 	
 	public List<User> findAllUsers() {
+		myLogger.info("in UserDAO:findAllUsers()");
 		Session session = HibernateUtil.getSession();
 		return session.createQuery("FROM User").list();
 	}
