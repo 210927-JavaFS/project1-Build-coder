@@ -37,8 +37,8 @@ public class LoginService {
 		User user = userDaoImpl.findByName(userDto.username); //500 server error
 		//Provided id of the wrong type for class com.revature.models.User. 
 		// Expected: class java.lang.Integer, got class java.lang.String
-		myLogger.info("Retrieved from DB: " + user.getFirstName());
-		myLogger.info("Retrieved from DB: " + user.getPassword());
+		// myLogger.info("Retrieved from DB: " + user.getFirstName());
+		// myLogger.info("Retrieved from DB: " + user.getPassword());
 
 		
 		// if(_user!=null && (userDto.password.hashCode()==_user.getPassword())) {
