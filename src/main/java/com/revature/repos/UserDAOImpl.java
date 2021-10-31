@@ -5,11 +5,17 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserDAOImpl{
+
+	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
 
 	
 	public List<User> findAllUsers() {
@@ -24,9 +30,17 @@ public class UserDAOImpl{
 	}
 
 	
-	public User findByName(String name) {
+	public User findByName(String user_name) {
+		// myLogger.info("UserDAOBefore:name: " + user_name);
+		// Session session = HibernateUtil.getSession();
+		// myLogger.info("UserDAOAfter:name: " + user_name);
+		// return session.get(User.class, user_name);
+
 		Session session = HibernateUtil.getSession();
-		return session.get(User.class, name);
+		Query query = session.createQuery("FROM User u WHERE u.userName =:user_name");
+		query.setParameter("user_name", user_name);
+		return (User) query.getSingleResult();
+		
 	}
 
 	

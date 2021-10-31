@@ -164,7 +164,6 @@ public class User {
         return "User [email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName
                 + ", password=" + password + ", role=" + role + ", userName=" + userName + "]";
     }
-  
 }
 
     

@@ -31,23 +31,28 @@ public class LoginService {
 	
 	public boolean login(UserDTO userDto) {
 
-		myLogger.info(userDto.username);
-		// log.error(userDto.password);
-		_User _user = userDao.getByUsername(userDto.username);
-		// User user = userDaoImpl.findByName(userDto.username);
-		
-		if(_user!=null && (userDto.password.hashCode()==_user.getPassword())) {
-			return true;
-		}
-		
-		return false;
+		myLogger.debug("LoginService:username: " + userDto.username);
+		myLogger.debug("LoginService:password: " + userDto.password);
+		// _User _user = userDao.getByUsername(userDto.username);
+		User user = userDaoImpl.findByName(userDto.username); //500 server error
+		//Provided id of the wrong type for class com.revature.models.User. 
+		// Expected: class java.lang.Integer, got class java.lang.String
+		myLogger.info("Retrieved from DB: " + user.getFirstName());
+		myLogger.info("Retrieved from DB: " + user.getPassword());
 
-
-		// if(user!=null && (userDto.password.hashCode()==user.getPassword())) {
+		
+		// if(_user!=null && (userDto.password.hashCode()==_user.getPassword())) {
 		// 	return true;
 		// }
 		
 		// return false;
+
+
+		if(user!=null && (userDto.password.hashCode()==user.getPassword())) {
+			return true;
+		}
+		
+		return false;
 	}
 
 }

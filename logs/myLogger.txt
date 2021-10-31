@@ -1,2 +1,25 @@
-20:39:55.645 [] [qtp1072410641-21] INFO  myLogger - ghmgm
-20:40:10.656 [] [qtp1072410641-18] INFO  myLogger - phil
+21:48:00.186 [] [qtp1072410641-19] DEBUG myLogger - LoginService:username: phil
+21:48:00.186 [] [qtp1072410641-19] DEBUG myLogger - LoginService:password: pass
+21:48:00.186 [] [qtp1072410641-19] INFO  myLogger - UserDAOBefore:name: phil
+21:48:03.584 [] [qtp1072410641-19] INFO  myLogger - UserDAOAfter:name: phil
+
+org.hibernate.TypeMismatchException: Provided id of the wrong type for class com.revature.models.User. 
+Expected: class java.lang.Integer, got class java.lang.String
+
+------------------------------------------------------------------------------------------------------22:07:11.436 [] [qtp1072410641-20] DEBUG myLogger - LoginService:username: morpheus
+22:07:11.437 [] [qtp1072410641-20] DEBUG myLogger - LoginService:password: pass4
+22:07:15.073 [] [qtp1072410641-20] INFO  myLogger - Retrieved from DB: morph
+22:07:15.073 [] [qtp1072410641-20] INFO  myLogger - Retrieved from DB: 106438211
+22:08:51.854 [] [qtp1072410641-14] DEBUG myLogger - LoginService:username: phil
+22:08:51.855 [] [qtp1072410641-14] DEBUG myLogger - LoginService:password: pass
+22:09:09.272 [] [qtp1072410641-15] DEBUG myLogger - LoginService:username: oracle
+22:09:09.272 [] [qtp1072410641-15] DEBUG myLogger - LoginService:password: pass2
+22:09:09.301 [] [qtp1072410641-15] INFO  myLogger - Retrieved from DB: know
+22:09:09.301 [] [qtp1072410641-15] INFO  myLogger - Retrieved from DB: 106438209
+22:23:49.207 [] [qtp1072410641-19] DEBUG myLogger - LoginService:username: pcoulson
+22:23:49.207 [] [qtp1072410641-19] DEBUG myLogger - LoginService:password: bdbddfb
+22:24:12.721 [] [qtp1072410641-20] DEBUG myLogger - LoginService:username: morpheus
+22:24:12.722 [] [qtp1072410641-20] DEBUG myLogger - LoginService:password: pass4
+22:24:12.800 [] [qtp1072410641-20] INFO  myLogger - Retrieved from DB: morph
+22:24:12.800 [] [qtp1072410641-20] INFO  myLogger - Retrieved from DB: 106438211
+22:24:12.816 [] [qtp1072410641-20] INFO  myLogger - Sessiong is good

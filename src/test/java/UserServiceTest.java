@@ -36,8 +36,8 @@ public class UserServiceTest{
     User user;
     User userDB;
     User user1 = new User(1,"agent smith", "pass1".hashCode(), "agent", "smith", "humansSuck@gmail.com", Role.EMPLOYEE);
-    User user2 = new User(2,"oracle", "pass2".hashCode(), "know", "thyself", "knowThyself@gmail.com", Role.EMPLOYEE);
-    User user3 = new User(3,"neo one", "pass3".hashCode(), "new", "one", "theOne@gmail.com", Role.MANAGER);
+    User user2 = new User(2,"oracle", "pass2".hashCode(), "the", "oracle", "knowThyself@gmail.com", Role.EMPLOYEE);
+    User user3 = new User(3,"neo one", "pass3".hashCode(), "the", "one", "theOne@gmail.com", Role.MANAGER);
     User user4 = new User(4,"morpheus", "pass4".hashCode(), "morph", "us", "morphUs@gmail.com", Role.MANAGER);
 
     boolean testPass;

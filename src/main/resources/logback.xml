@@ -8,7 +8,7 @@
   </appender>
   
   <!-- This is a file appender that will print to a file. -->
-   <appender name="FILE" class="ch.qos.logback.core.FileAppender" ref="STDOUT" level="info">
+   <appender name="FILE" class="ch.qos.logback.core.FileAppender" ref="STDOUT" level="off">
         <file>logs\\log.txt</file>
         <append>true</append>
         <encoder>
@@ -17,7 +17,7 @@
     </appender>
 
     <!-- This is a file appender that will print to a file. -->
-    <appender name="MY-FILE" class="ch.qos.logback.core.FileAppender">
+    <appender name="MY-LOGGER" class="ch.qos.logback.core.FileAppender">
       <file>logs\\myLogger.txt</file>
       <append>true</append>
       <encoder>
@@ -25,8 +25,8 @@
       </encoder>
   </appender>
 
-  <logger name="myLogger" level="info" additivity="false">
-    <appender-ref ref="MY-FILE"/>
+  <logger name="myLogger" level="debug" additivity="false">
+    <appender-ref ref="MY-LOGGER"/>
   </logger>
 
   <root>
