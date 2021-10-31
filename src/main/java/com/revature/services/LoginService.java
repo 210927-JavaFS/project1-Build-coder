@@ -1,8 +1,12 @@
 package com.revature.services;
 
 import com.revature.models._User;
+import com.revature.repos.UserDAOImpl;
+import com.revature.models.User;
 import com.revature.models.UserDTO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * Normally this would go to a DAO and then
  * the DAO would connect to the DB to my 
@@ -21,15 +25,29 @@ import com.revature.models.UserDTO;
 public class LoginService {
 	
 	private UserDAO userDao = new UserDAO();
+	private UserDAOImpl userDaoImpl = new UserDAOImpl();
+	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
+
 	
 	public boolean login(UserDTO userDto) {
-		_User user = userDao.getByUsername(userDto.username);
+
+		myLogger.info(userDto.username);
+		// log.error(userDto.password);
+		_User _user = userDao.getByUsername(userDto.username);
+		// User user = userDaoImpl.findByName(userDto.username);
 		
-		if(user!=null && (userDto.password.hashCode()==user.getPassword())) {
+		if(_user!=null && (userDto.password.hashCode()==_user.getPassword())) {
 			return true;
 		}
 		
 		return false;
+
+
+		// if(user!=null && (userDto.password.hashCode()==user.getPassword())) {
+		// 	return true;
+		// }
+		
+		// return false;
 	}
 
 }
