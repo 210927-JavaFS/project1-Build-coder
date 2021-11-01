@@ -66,25 +66,16 @@ function displayStatuses() {
     // if ((sessionStorage.getItem("userRole"))==="MANAGER") {
     let login = JSON.parse(sessionStorage.login);
     console.log(login.role);
+    
 
     if (login.role==="MANAGER") {
 
       getTickets();
-      var x = document.getElementById("myDIV");
+      let x = document.getElementById("myDIV");
       x.style.display = "block";
-      // if (x.style.display === "none") {
-      //   x.style.display = "block";
-      // } else {
-      //   x.style.display = "none";
-      // }
+   
     } else {
-      // if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
-        // x.style.display = "none";
-        document.getElementById("access_denied").innerHTML="";
-        let para = document.createElement("p");
-        para.setAttribute("style","color:red");
-        para.innerText="UNAUTHORIZED ACCESS!";
-        document.getElementById("access_denied").appendChild(para);
+        accessDenied();
     }
   }
   // }
@@ -237,13 +228,16 @@ async function initSession(){
 
 function getNewTicket(){
   console.log("in getNewTicket()");
+  let login = JSON.parse(sessionStorage.login);
+  console.log(login.id);
+
   let newAmount = document.getElementById("ticketAmount").value;
   let newDesc = document.getElementById("ticketDesc").value; 
   let newType = document.getElementById("inputState").value;
   let newSubmitted = Date.now();
   let newResolved = 0;
   let newReceipt = "";
-  let newAuthor = null;
+  let newAuthor = login;
   let newResolver = null;
   let newStatus = "PENDING";
 
@@ -280,6 +274,7 @@ async function addTicket(){
 }
 
 async function displayUsersTickets(){
+  document.getElementById("access_denied").innerHTML="";
 
   let login = JSON.parse(sessionStorage.login);
   console.log(login.id);
@@ -293,4 +288,28 @@ async function displayUsersTickets(){
   } else {
     console.log("Couldn't find tickets for user");
   }
+}
+
+function approveTickets(){
+  let login = JSON.parse(sessionStorage.login);
+
+  if (login.role!="MANAGER") {
+    accessDenied();
+  }
+}
+
+function denyTickets(){
+  let login = JSON.parse(sessionStorage.login);
+
+  if (login.role!="MANAGER") {
+    accessDenied();
+  }
+}
+
+function accessDenied(){
+  document.getElementById("access_denied").innerHTML="";
+  let para = document.createElement("p");
+  para.setAttribute("style","color:red");
+  para.innerText="UNAUTHORIZED ACCESS!";
+  document.getElementById("access_denied").appendChild(para);
 }
