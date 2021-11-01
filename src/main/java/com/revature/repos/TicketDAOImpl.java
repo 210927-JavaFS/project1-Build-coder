@@ -70,6 +70,7 @@ public class TicketDAOImpl{
 	
 	public boolean addTicket(Ticket ticket) {
 		try {
+			myLogger.info("In addTicket DAO");
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
 			session.save(ticket);

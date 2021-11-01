@@ -213,5 +213,46 @@ async function initSession(){
   }
 }
 
+function getNewTicket(){
+  console.log("in getNewTicket()");
+  let newAmount = document.getElementById("ticketAmount").value;
+  let newDesc = document.getElementById("ticketDesc").value; 
+  let newType = document.getElementById("inputState").value;
+  let newSubmitted = Date.now();
+  let newResolved = 0;
+  let newReceipt = "";
+  let newAuthor = null;
+  let newResolver = null;
+  let newStatus = "PENDING";
 
- 
+  let ticket =  {
+    amount:newAmount,
+    desc:newDesc,
+    type:newType,
+    submitted:newSubmitted,
+    resolved:newResolved,
+    receipt:newReceipt,
+    author:newAuthor,
+    resolver:newResolver,
+    status:newStatus
+  }
+
+  return ticket;
+}
+
+async function addTicket(){
+  console.log("In addTicket()");
+  let ticket = getNewTicket();
+
+  let response = await fetch(URL+"tickets", {
+    method:'POST',
+    body:JSON.stringify(ticket),
+    credentials:"include"
+  });
+
+  if(response.status===201){
+    console.log("Ticket created successfully.");
+  }else{
+    console.log("Something went wrong creating your ticket.")
+  }
+}
