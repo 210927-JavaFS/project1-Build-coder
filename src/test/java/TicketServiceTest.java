@@ -30,6 +30,7 @@ public class TicketServiceTest{
     List<Ticket> tickets = new ArrayList<Ticket>();
     List<Ticket> ticketsDB = new ArrayList<Ticket>();
     public static Logger log = LoggerFactory.getLogger(TicketServiceTest.class);
+    public static Logger myLogger = LoggerFactory.getLogger("myLogger");
     User author;
     User resolver;
 
@@ -156,6 +157,22 @@ public class TicketServiceTest{
         // make sure that a new ticket isn't created
         log.info("---End of updateTicket---------------------------------------");
 	}
+
+	@Test
+    @Order(6)
+	public void getAllByAuthorTest(){
+        log.info("---Begin of getAllByAuthorTest-------------------------------------");
+        
+        ticketsDB = ticketService.getAllByAuthor(1);
+        assertNotNull(ticketsDB);
+        
+        for(Ticket ticket : ticketsDB){
+            myLogger.info(ticket.toString());
+        }
+
+        log.info("---End of getAllByAuthorTest---------------------------------------");
+	}
+
 	
     @AfterEach
     public void clear(){

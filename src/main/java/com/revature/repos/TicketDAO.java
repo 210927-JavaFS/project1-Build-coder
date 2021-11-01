@@ -1,6 +1,8 @@
 package com.revature.repos;
 
 import com.revature.models.Ticket;
+import com.revature.models.User;
+
 import java.util.List;
 
 public interface TicketDAO {
@@ -22,4 +24,6 @@ public interface TicketDAO {
     public boolean updateTicket(Ticket ticket);
 
     public boolean deleteTicket(Ticket ticket);
+
+    public List<Ticket> findAllByAuthor(int id);
 }

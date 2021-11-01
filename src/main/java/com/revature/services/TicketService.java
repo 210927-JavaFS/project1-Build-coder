@@ -3,6 +3,7 @@ package com.revature.services;
 import java.util.List;
 
 import com.revature.models.Ticket;
+import com.revature.models.User;
 import com.revature.repos.TicketDAOImpl;
 
 public class TicketService {
@@ -32,7 +33,12 @@ public class TicketService {
 		Ticket ticket = ticketDao.findById(id);
 		return ticket;
 	}
-	
+
+	public List<Ticket> getAllByAuthor(int id) {
+        
+        return ticketDao.findAllByAuthor(id);
+    }
+
 	public Ticket getTicketByName(String name){
 		Ticket ticket = ticketDao.findByName(name);
 		if (ticket!=null) {

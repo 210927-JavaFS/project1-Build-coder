@@ -3,11 +3,12 @@ package com.revature.services;
 import java.util.List;
 
 import com.revature.models.User;
+import com.revature.repos.UserDAO;
 import com.revature.repos.UserDAOImpl;
 
 public class UserService {
 
-	private UserDAOImpl userDao = new UserDAOImpl();
+	private UserDAO userDao = new UserDAOImpl();
 	
 	public List<User> getAllUsers(){
 		return userDao.findAllUsers();

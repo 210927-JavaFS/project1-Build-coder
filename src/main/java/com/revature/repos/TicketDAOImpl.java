@@ -1,15 +1,21 @@
 package com.revature.repos;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.NoResultException;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.CriteriaQuery;
 
 import com.revature.models.Ticket;
+import com.revature.models.User;
+import com.revature.utils.CollectionUtil;
 import com.revature.utils.HibernateUtil;
 
 import org.slf4j.Logger;
@@ -48,17 +54,14 @@ public class TicketDAOImpl implements TicketDAO{
 		return session.createQuery("FROM Ticket t WHERE t.status = 'DENIED'").list();
 	}
 
-	// public List<Ticket> findAllTicketsByUser(user_id) {
-	// 	Session session = HibernateUtil.getSession();
-	// 	Query query = session.createQuery("FROM User u WHERE u.userName =:user_id");
-	// 	query.setParameter("user_name", user_id);
-	// 	return (Ticket) query.getSingleResult();
-	// }
-	
-	public Ticket findById(int id) {
+    @Override
+    public List<Ticket> findAllByAuthor(int id) {
 		Session session = HibernateUtil.getSession();
-		return session.get(Ticket.class, id);
-	}
+		Query query = session.createQuery("FROM Ticket WHERE author_id = :author");
+		query.setParameter("author", id);
+		List<Ticket> tickets = CollectionUtil.castList(Ticket.class, query.getResultList());
+		return tickets;
+    }
 
 	
 	public Ticket findByName(String name) {
@@ -110,5 +113,11 @@ public class TicketDAOImpl implements TicketDAO{
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public Ticket findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -5,7 +5,11 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.revature.models.Ticket;
+import com.revature.models.User;
+import com.revature.repos.UserDAO;
+import com.revature.repos.UserDAOImpl;
 import com.revature.services.TicketService;
+import com.revature.services.UserService;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
@@ -15,13 +19,10 @@ import org.slf4j.LoggerFactory;
 
 public class TicketController implements Controller{
 
-	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
-
-    
+	private static Logger myLogger = LoggerFactory.getLogger("myLogger");
 	private TicketService ticketService = new TicketService();
-	
-	@JsonIgnore 
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	private UserService userService = new UserService();
+
 	public Handler findAllTickets = (ctx) -> {
 		if (ctx.req.getSession(false) != null) {
 			myLogger.info("in TicketController:findAllTickets()");
@@ -64,32 +65,35 @@ public class TicketController implements Controller{
 		}
 	};
 
-	// public Handler findAllTicketsByUser= (ctx) -> {
+	public Handler findAllByAuthor= (ctx) -> {
+        myLogger.info("TicketController: getting a ticket by id");
+		
+		if (ctx.req.getSession(false) != null) {
+            User author = userService.getUserById(Integer.parseInt(ctx.pathParam("author_id")));
+            List<Ticket> tickets = ticketService.getAllByAuthor(author.getId());
+            ctx.json(tickets);
+            ctx.status(200);
+        } else {
+            ctx.status(401);
+        }
+	};
+	
+	// public Handler getTicket = (ctx) -> {
 	// 	if (ctx.req.getSession(false) != null) {
-	// 		List<Ticket> list = ticketService.getAllTicketsByUser(ctx.pathParam("id"));
-	// 		ctx.json(list);
-	// 		ctx.status(200);
+	// 		try {
+	// 			String idString = ctx.pathParam("ticket");
+	// 			int id = Integer.parseInt(idString);
+	// 			Ticket ticket = ticketService.getTicketById(id);
+	// 			ctx.json(ticket);
+	// 			ctx.status(200);
+	// 		} catch (NumberFormatException e) {
+	// 			e.printStackTrace();
+	// 			ctx.status(406);
+	// 		}
 	// 	} else {
 	// 		ctx.status(401);
 	// 	}
 	// };
-	
-	public Handler getTicket = (ctx) -> {
-		if (ctx.req.getSession(false) != null) {
-			try {
-				String idString = ctx.pathParam("ticket");
-				int id = Integer.parseInt(idString);
-				Ticket ticket = ticketService.getTicketById(id);
-				ctx.json(ticket);
-				ctx.status(200);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				ctx.status(406);
-			}
-		} else {
-			ctx.status(401);
-		}
-	};
 	
 	public Handler addTicket = (ctx) -> {
 		if (ctx.req.getSession(false) != null) {
@@ -143,7 +147,8 @@ public class TicketController implements Controller{
 		app.get("/ticketsByPending", this.findAllTicketsByPending);
 		app.get("/ticketsByApproved", this.findAllTicketsByApproved);
 		app.get("/ticketsByDenied", this.findAllTicketsByDenied);
-		app.get("/tickets/:ticket", this.getTicket);
+		app.get("/tickets/author/:author_id", this.findAllByAuthor);
+		// app.get("/tickets/:ticket", this.getTicket);
 		app.post("/tickets", this.addTicket);
 		app.put("/tickets", this.updateTicket);
 		app.delete("/tickets/:ticket", this.deleteTicket);

@@ -23,6 +23,9 @@ async function loginToApp(){
   if (response.status===200) {
     // let data = await response.json();
     // sessionStorage.setItem("userRole",data.role);
+    let login = await response.json();
+    sessionStorage.setItem("login",JSON.stringify(login));
+    console.log(login);
 
     document.getElementById("login").innerHTML="";
     document.getElementById("access_denied").innerHTML="";
@@ -257,16 +260,22 @@ async function addTicket(){
   }
 }
 
-// function displayUsersTicket(){
-//   // let login = JSON.parse(sessionStorage.login);
-//   let response = await fetch(URL + "reimbursements/author/" + login.id, {
-//     credentials: "include",
-//   });
+async function displayUsersTickets(){
+  // let login = JSON.parse(sessionStorage.login);
+  // console.log(login.id);
+  // let loginCred = sessionStorage.getItem("login");
+  // console.log(loginCred);
 
-//   if (response.status === 200) {
-//     let data = await response.json();
-//     populateReimbursementsTable(data);
-//   } else {
-//     console.log("Couldn't find any tickets, sorry!");
-//   }
-// }
+  let login = JSON.parse(sessionStorage.login);
+  console.log(login.id);
+  let response = await fetch(URL + "tickets/author/" + login.id, {
+    credentials: "include",
+  });
+
+  if (response.status === 200) {
+    let data = await response.json();
+    populateTable(data);
+  } else {
+    console.log("Couldn't find tickets for user");
+  }
+}
