@@ -43,7 +43,7 @@ public class TicketServiceTest{
     Ticket ticket1 = new Ticket(1,50,date,date,"desc","receipt",author1,
     resolver, Status.APPROVED,Type.LODGING);
     Ticket ticket2 = new Ticket(2,75,date,date,"desc","receipt",author2,
-    resolver, Status.PENDING,Type.OTHER);
+    resolver, Status.APPROVED,Type.OTHER);
     Ticket ticket3 = new Ticket(3,100.25,date,date,"desc","receipt",author3,
         resolver, Status.PENDING,Type.LODGING);
     Ticket ticket4 = new Ticket(4,100.50,date,date,"desc","receipt",author4,

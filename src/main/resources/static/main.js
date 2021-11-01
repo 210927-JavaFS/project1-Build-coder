@@ -60,7 +60,7 @@ function displayStatuses() {
   }
 
   function displayAllTickets() {
-    // if ((sessionStorage.getItem("currentUserRole"))==="MANAGER") {
+    // if ((sessionStorage.getItem("userRole"))==="MANAGER") {
       getTickets();
       var x = document.getElementById("myDIV");
       if (x.style.display === "none") {
@@ -69,15 +69,15 @@ function displayStatuses() {
         x.style.display = "none";
       }
     // } else {
-      if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
+      // if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
         document.getElementById("access_denied").innerHTML="";
         let para = document.createElement("p");
         para.setAttribute("style","color:red");
         para.innerText="UNAUTHORIZED ACCESS!";
         document.getElementById("access_denied").appendChild(para);
       }
-    // }
-  }
+  //   }
+  // }
 
   /**
    * Default setting is for tickets to be
@@ -185,7 +185,6 @@ function displayStatuses() {
 
       for(let cell in ticket){
         let td = document.createElement("td");
-        // console.log(ticket.author.userName);
 
         if(cell!="author"){
           td.innerText=ticket[cell];
