@@ -7,6 +7,8 @@ let loginButton = document.getElementById('loginButton');
 loginButton.onclick = loginToApp;
 
 async function loginToApp(){
+  sessionStorage.clear();
+
   let user = {
     username:document.getElementById("username").value,
     password:document.getElementById("password").value
@@ -19,7 +21,9 @@ async function loginToApp(){
   });
 
   if (response.status===200) {
-    // initSession();
+    // let data = await response.json();
+    // sessionStorage.setItem("userRole",data.role);
+
     document.getElementById("login").innerHTML="";
     document.getElementById("access_denied").innerHTML="";
     
@@ -178,40 +182,37 @@ function displayStatuses() {
 
       // save check box
       row.appendChild(th);
-  
-      // put each field into row of table
-      let td = document.createElement("td");
-      let values = Object.values(ticket);
-      let author = Object.values(values[6]); 
-      let x = author[1];
-      console.log(values);
-      console.log(author);
-      console.log(author[1]);
 
-        for (let i = 0; i < values.length; i++) {
+      for(let cell in ticket){
+        let td = document.createElement("td");
+        // console.log(ticket.author.userName);
+
+        if(cell!="author"){
+          td.innerText=ticket[cell];
           
-          if (i=6) {
-            td.innerText=x;
-          } else{
-            td.innerText=values[i];
-          }
-
-          row.appendChild(td);
-
+        }else if(ticket[cell]){
+          td.innerText = 
+          `${ticket[cell].userName}`
         }
-    
-      tbody.appendChild(row);
+
+        row.appendChild(td);
       }
+      
+      tbody.appendChild(row);
     }
+ }
 
-  async function initSession(){
-    let response = await fetch(URL+"users/:user", {credentials:"include"});
+async function initSession(){
+  let response = await fetch(URL+"users/:user", {credentials:"include"});
 
-    if(response.status === 200){
-      sessionStorage.clear();
-      let data = await response.json();
-      sessionStorage.setItem("currentUserRole",data.role);
-    }else{
-      console.log("Could not get user");
-    }
+  if(response.status === 200){
+    sessionStorage.clear();
+    let data = await response.json();
+    sessionStorage.setItem("currentUserRole",data.role);
+  }else{
+    console.log("Could not get user");
   }
+}
+
+
+ 

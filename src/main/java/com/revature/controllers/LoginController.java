@@ -2,16 +2,19 @@ package com.revature.controllers;
 
 import com.revature.models.UserDTO;
 import com.revature.services.LoginService;
+import com.revature.services.UserService;
 
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 
+import org.eclipse.jetty.server.Authentication.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoginController implements Controller{
 	
 	private LoginService loginService = new LoginService();
+	private UserService userService = new UserService();
 	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
 
 
