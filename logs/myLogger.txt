@@ -9,3 +9,60 @@
 23:09:19.069 [] [qtp1962826816-17] INFO  myLogger - in TicketController:findAllTickets()
 23:09:19.092 [] [qtp1962826816-17] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
 23:09:19.092 [] [qtp1962826816-17] INFO  myLogger - agent smith user name of author of first ticket
+00:25:37.502 [] [qtp1962826816-14] INFO  myLogger - in LoginController:loginAttempt
+00:25:58.115 [] [qtp1962826816-18] INFO  myLogger - in LoginController:loginAttempt
+00:25:58.152 [] [qtp1962826816-18] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+00:25:59.698 [] [qtp1962826816-21] INFO  myLogger - in TicketController:findAllTickets()
+00:25:59.876 [] [qtp1962826816-21] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:25:59.876 [] [qtp1962826816-21] INFO  myLogger - agent smith user name of author of first ticket
+00:26:00.746 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:26:00.768 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:00.768 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:26:06.578 [] [qtp1962826816-21] INFO  myLogger - in TicketController:findAllTickets()
+00:26:06.609 [] [qtp1962826816-21] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:06.609 [] [qtp1962826816-21] INFO  myLogger - agent smith user name of author of first ticket
+00:26:07.890 [] [qtp1962826816-20] INFO  myLogger - in TicketController:findAllTickets()
+00:26:07.916 [] [qtp1962826816-20] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:07.916 [] [qtp1962826816-20] INFO  myLogger - agent smith user name of author of first ticket
+00:26:29.924 [] [qtp1962826816-19] INFO  myLogger - in LoginController:loginAttempt
+00:26:29.948 [] [qtp1962826816-19] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+00:26:31.181 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:26:31.202 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:31.202 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:26:32.057 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+00:26:32.078 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:32.078 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+00:26:40.106 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:26:40.129 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:40.129 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:26:41.161 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+00:26:41.185 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:26:41.185 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+00:27:33.476 [] [qtp1962826816-21] INFO  myLogger - in TicketController:findAllTickets()
+00:27:33.494 [] [qtp1962826816-21] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:27:33.494 [] [qtp1962826816-21] INFO  myLogger - agent smith user name of author of first ticket
+00:27:34.749 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+00:27:34.777 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:27:34.777 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+00:27:43.570 [] [qtp1962826816-18] INFO  myLogger - in LoginController:loginAttempt
+00:27:43.619 [] [qtp1962826816-18] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+00:27:45.153 [] [qtp1962826816-20] INFO  myLogger - in TicketController:findAllTickets()
+00:27:45.177 [] [qtp1962826816-20] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:27:45.177 [] [qtp1962826816-20] INFO  myLogger - agent smith user name of author of first ticket
+00:27:46.080 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:27:46.099 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:27:46.100 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:37:07.316 [] [qtp1962826816-19] INFO  myLogger - in LoginController:loginAttempt
+00:37:10.125 [] [qtp1962826816-19] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+00:37:18.138 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:37:18.256 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:37:18.257 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:37:19.295 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+00:37:19.320 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:37:19.320 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+00:37:22.434 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+00:37:22.460 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:37:22.460 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+00:37:23.335 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+00:37:23.360 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+00:37:23.360 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket

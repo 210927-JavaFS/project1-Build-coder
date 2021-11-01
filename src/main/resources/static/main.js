@@ -1,6 +1,10 @@
 
 let URL = "http://localhost:8081/";
 
+// user cred
+// const username;
+// const login;
+
 
 // login 
 let loginButton = document.getElementById('loginButton');
@@ -8,6 +12,7 @@ loginButton.onclick = loginToApp;
 
 async function loginToApp(){
   sessionStorage.clear();
+  // username = document.getElementById("username").value;
 
   let user = {
     username:document.getElementById("username").value,
@@ -23,7 +28,7 @@ async function loginToApp(){
   if (response.status===200) {
     // let data = await response.json();
     // sessionStorage.setItem("userRole",data.role);
-
+    login = true;
     document.getElementById("login").innerHTML="";
     document.getElementById("access_denied").innerHTML="";
     
@@ -191,8 +196,7 @@ function displayStatuses() {
           
         }else if(ticket[cell]){
           td.innerText = 
-          `${ticket[cell].userName}`
-        }
+          `${ticket[cell].userName}`;
 
         row.appendChild(td);
       }
@@ -200,18 +204,48 @@ function displayStatuses() {
       tbody.appendChild(row);
     }
  }
+}
 
-async function initSession(){
-  let response = await fetch(URL+"users/:user", {credentials:"include"});
+async function addTicket(){
 
-  if(response.status === 200){
-    sessionStorage.clear();
-    let data = await response.json();
-    sessionStorage.setItem("currentUserRole",data.role);
+  let ticket = getNewTicket();
+
+  let response = await fetch(URL+"tickets", {
+    method:'POST',
+    body:JSON.stringify(ticket),
+    credentials:"include"
+  });
+
+  if(response.status===201){
+    console.log("Ticket created successfully.");
   }else{
-    console.log("Could not get user");
+    console.log("Something went wrong creating your home.")
   }
 }
 
+function getNewTicket(){
 
- 
+  let newAmount = document.getElementById("ticketAmount").value;
+  let newDesc = document.getElementById("ticketDesc").value; 
+  let newType = document.getElementById("inputState").value;
+  let newSubmitted = Date.now();
+  let newResolved = 0;
+  let newResolver = null;
+  let newReceipt = "";
+  let newAuthor = username;
+  let newStatus = "PENDING";
+
+  let ticket =  {
+    amount:newAmount,
+    desc:newDesc,
+    type:newType,
+    submitted:newSubmitted,
+    resolved:newResolved,
+    resolver:newResolver,
+    receipt:newReceipt,
+    author:newAuthor,
+    status:newStatus
+  }
+
+  return ticket;
+}
