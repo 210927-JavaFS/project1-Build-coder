@@ -1,15 +1,17 @@
-06:40:07.265 [] [main] INFO  myLogger - Ticket [amount=100.5, author=User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus], desc=desc, id=4, receipt=receipt, resolved=2021-10-31 22:31:26.511, resolver=null, status=DENIED, submitted=2021-10-31 22:31:26.511, type=TRAVEL]
-06:41:03.729 [] [main] INFO  myLogger - Ticket [amount=50.0, author=User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith], desc=desc, id=1, receipt=receipt, resolved=2021-10-31 22:31:26.413, resolver=null, status=APPROVED, submitted=2021-10-31 22:31:26.413, type=LODGING]
-06:41:03.729 [] [main] INFO  myLogger - Ticket [amount=100.75, author=User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith], desc=desc, id=5, receipt=receipt, resolved=2021-10-31 22:31:26.53, resolver=null, status=PENDING, submitted=2021-10-31 22:31:26.53, type=OTHER]
-06:42:10.232 [] [qtp210506412-14] INFO  myLogger - in LoginController:loginAttempt
-06:42:13.084 [] [qtp210506412-14] INFO  myLogger - User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith]
-06:42:15.763 [] [qtp210506412-18] INFO  myLogger - TicketController: getting a ticket by id
-06:43:54.461 [] [qtp210506412-14] INFO  myLogger - in TicketController:findAllTickets()
-06:43:54.501 [] [qtp210506412-14] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
-06:43:54.502 [] [qtp210506412-14] INFO  myLogger - agent smith user name of author of first ticket
-06:43:55.729 [] [qtp210506412-19] INFO  myLogger - in TicketController:findAllTickets()
-06:43:55.756 [] [qtp210506412-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
-06:43:55.756 [] [qtp210506412-19] INFO  myLogger - agent smith user name of author of first ticket
-06:43:57.396 [] [qtp210506412-14] INFO  myLogger - in TicketController:findAllTickets()
-06:43:57.422 [] [qtp210506412-14] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
-06:43:57.422 [] [qtp210506412-14] INFO  myLogger - agent smith user name of author of first ticket
+06:50:21.572 [] [qtp210506412-21] INFO  myLogger - in LoginController:loginAttempt
+06:50:24.379 [] [qtp210506412-21] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+06:50:28.272 [] [qtp210506412-17] INFO  myLogger - TicketController: getting a ticket by id
+06:51:14.227 [] [qtp210506412-18] INFO  myLogger - in LoginController:loginAttempt
+06:51:14.249 [] [qtp210506412-18] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+06:52:44.671 [] [qtp210506412-19] INFO  myLogger - in LoginController:loginAttempt
+06:52:47.414 [] [qtp210506412-19] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+06:52:49.939 [] [qtp210506412-18] INFO  myLogger - in TicketController:findAllTickets()
+06:52:50.035 [] [qtp210506412-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+06:52:50.035 [] [qtp210506412-18] INFO  myLogger - agent smith user name of author of first ticket
+06:52:51.981 [] [qtp210506412-19] INFO  myLogger - in TicketController:findAllTickets()
+06:52:52.024 [] [qtp210506412-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+06:52:52.024 [] [qtp210506412-19] INFO  myLogger - agent smith user name of author of first ticket
+06:52:55.778 [] [qtp210506412-18] INFO  myLogger - TicketController: getting a ticket by id
+06:54:22.634 [] [qtp210506412-17] INFO  myLogger - in LoginController:loginAttempt
+06:54:22.660 [] [qtp210506412-17] INFO  myLogger - User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith]
+06:54:28.280 [] [qtp210506412-19] INFO  myLogger - TicketController: getting a ticket by id

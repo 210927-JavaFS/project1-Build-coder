@@ -64,6 +64,11 @@ function displayStatuses() {
 
   function displayAllTickets() {
     // if ((sessionStorage.getItem("userRole"))==="MANAGER") {
+    let login = JSON.parse(sessionStorage.login);
+    console.log(login.role);
+
+    if (login.role==="MANAGER") {
+
       getTickets();
       var x = document.getElementById("myDIV");
       if (x.style.display === "none") {
@@ -71,15 +76,15 @@ function displayStatuses() {
       } else {
         x.style.display = "none";
       }
-    // } else {
+    } else {
       // if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
         document.getElementById("access_denied").innerHTML="";
         let para = document.createElement("p");
         para.setAttribute("style","color:red");
         para.innerText="UNAUTHORIZED ACCESS!";
         document.getElementById("access_denied").appendChild(para);
-      }
-  //   }
+    }
+  }
   // }
 
   /**
@@ -261,10 +266,6 @@ async function addTicket(){
 }
 
 async function displayUsersTickets(){
-  // let login = JSON.parse(sessionStorage.login);
-  // console.log(login.id);
-  // let loginCred = sessionStorage.getItem("login");
-  // console.log(loginCred);
 
   let login = JSON.parse(sessionStorage.login);
   console.log(login.id);
