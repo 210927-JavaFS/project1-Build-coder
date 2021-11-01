@@ -24,6 +24,10 @@ public class TicketService {
 		return ticketDao.findAllTicketsByDenied();
 	}
 
+	// public List<Ticket>getAllTicketsByUser(id){
+	// 	return ticketDao.findAllTicketsByUser(id);
+	// }
+
 	public Ticket getTicketById(int id){
 		Ticket ticket = ticketDao.findById(id);
 		return ticket;

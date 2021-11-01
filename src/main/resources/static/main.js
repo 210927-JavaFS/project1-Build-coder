@@ -256,3 +256,17 @@ async function addTicket(){
     console.log("Something went wrong creating your ticket.")
   }
 }
+
+// function displayUsersTicket(){
+//   // let login = JSON.parse(sessionStorage.login);
+//   let response = await fetch(URL + "reimbursements/author/" + login.id, {
+//     credentials: "include",
+//   });
+
+//   if (response.status === 200) {
+//     let data = await response.json();
+//     populateReimbursementsTable(data);
+//   } else {
+//     console.log("Couldn't find any tickets, sorry!");
+//   }
+// }

@@ -63,6 +63,16 @@ public class TicketController implements Controller{
 			ctx.status(401);
 		}
 	};
+
+	// public Handler findAllTicketsByUser= (ctx) -> {
+	// 	if (ctx.req.getSession(false) != null) {
+	// 		List<Ticket> list = ticketService.getAllTicketsByUser(ctx.pathParam("id"));
+	// 		ctx.json(list);
+	// 		ctx.status(200);
+	// 	} else {
+	// 		ctx.status(401);
+	// 	}
+	// };
 	
 	public Handler getTicket = (ctx) -> {
 		if (ctx.req.getSession(false) != null) {

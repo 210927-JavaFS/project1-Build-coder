@@ -13,7 +13,7 @@ import com.revature.utils.HibernateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserDAOImpl{
+public class UserDAOImpl implements UserDAO{
 
 	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
 

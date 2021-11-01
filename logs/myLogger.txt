@@ -19,3 +19,50 @@
 04:04:48.301 [] [qtp1962826816-18] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
 04:05:39.004 [] [qtp1962826816-18] INFO  myLogger - In addTicket DAO
 04:07:08.077 [] [qtp1962826816-18] INFO  myLogger - In addTicket DAO
+04:22:19.723 [] [qtp1962826816-19] INFO  myLogger - in LoginController:loginAttempt
+04:22:23.009 [] [qtp1962826816-19] INFO  myLogger - User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith]
+04:22:25.546 [] [qtp1962826816-15] INFO  myLogger - in TicketController:findAllTickets()
+04:22:25.659 [] [qtp1962826816-15] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:22:25.659 [] [qtp1962826816-15] INFO  myLogger - agent smith user name of author of first ticket
+04:22:26.435 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+04:22:26.458 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:22:26.458 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+04:23:07.204 [] [qtp1962826816-21] INFO  myLogger - In addTicket DAO
+04:23:09.700 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+04:23:09.786 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:23:09.786 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+04:23:10.370 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+04:23:10.392 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:23:10.392 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+04:26:45.162 [] [qtp1962826816-15] INFO  myLogger - in LoginController:loginAttempt
+04:26:48.730 [] [qtp1962826816-15] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+04:26:49.779 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+04:26:49.899 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:26:49.899 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+04:26:50.719 [] [qtp1962826816-18] INFO  myLogger - in TicketController:findAllTickets()
+04:26:50.763 [] [qtp1962826816-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:26:50.763 [] [qtp1962826816-18] INFO  myLogger - agent smith user name of author of first ticket
+04:27:17.080 [] [qtp1962826816-20] INFO  myLogger - in LoginController:loginAttempt
+04:27:17.101 [] [qtp1962826816-20] INFO  myLogger - User [email=morphUs@gmail.com, firstName=morph, id=4, lastName=us, password=106438211, role=MANAGER, userName=morpheus]
+04:27:18.320 [] [qtp1962826816-19] INFO  myLogger - in TicketController:findAllTickets()
+04:27:18.342 [] [qtp1962826816-19] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:27:18.342 [] [qtp1962826816-19] INFO  myLogger - agent smith user name of author of first ticket
+04:27:19.070 [] [qtp1962826816-20] INFO  myLogger - in TicketController:findAllTickets()
+04:27:19.094 [] [qtp1962826816-20] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:27:19.094 [] [qtp1962826816-20] INFO  myLogger - agent smith user name of author of first ticket
+04:34:01.246 [] [qtp283318938-21] INFO  myLogger - in LoginController:loginAttempt
+04:34:14.657 [] [qtp283318938-18] INFO  myLogger - in LoginController:loginAttempt
+04:34:14.699 [] [qtp283318938-18] INFO  myLogger - User [email=humansSuck@gmail.com, firstName=agent, id=1, lastName=smith, password=106438208, role=EMPLOYEE, userName=agent smith]
+04:34:15.648 [] [qtp283318938-21] INFO  myLogger - in TicketController:findAllTickets()
+04:34:15.755 [] [qtp283318938-21] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:34:15.755 [] [qtp283318938-21] INFO  myLogger - agent smith user name of author of first ticket
+04:34:16.762 [] [qtp283318938-18] INFO  myLogger - in TicketController:findAllTickets()
+04:34:16.787 [] [qtp283318938-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:34:16.787 [] [qtp283318938-18] INFO  myLogger - agent smith user name of author of first ticket
+04:34:35.487 [] [qtp283318938-21] INFO  myLogger - In addTicket DAO
+04:34:39.316 [] [qtp283318938-18] INFO  myLogger - in TicketController:findAllTickets()
+04:34:39.402 [] [qtp283318938-18] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:34:39.402 [] [qtp283318938-18] INFO  myLogger - agent smith user name of author of first ticket
+04:34:40.110 [] [qtp283318938-21] INFO  myLogger - in TicketController:findAllTickets()
+04:34:40.134 [] [qtp283318938-21] INFO  myLogger - 50.0 first ticket and it's amount retrieved from DAO
+04:34:40.134 [] [qtp283318938-21] INFO  myLogger - agent smith user name of author of first ticket
