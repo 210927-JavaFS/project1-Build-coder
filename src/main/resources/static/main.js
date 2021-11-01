@@ -229,7 +229,7 @@ async function initSession(){
 function getNewTicket(){
   console.log("in getNewTicket()");
   let login = JSON.parse(sessionStorage.login);
-  console.log(login.id);
+  console.log
 
   let newAmount = document.getElementById("ticketAmount").value;
   let newDesc = document.getElementById("ticketDesc").value; 

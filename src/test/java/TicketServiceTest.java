@@ -38,7 +38,8 @@ public class TicketServiceTest{
     User author2 = new User(2,"oracle", "pass2".hashCode(), "the", "oracle", "knowThyself@gmail.com", Role.EMPLOYEE);
     User author3 = new User(3,"neo one", "pass3".hashCode(), "the", "one", "theOne@gmail.com", Role.MANAGER);
     User author4 = new User(4,"morpheus", "pass4".hashCode(), "morph", "us", "morphUs@gmail.com", Role.MANAGER);
-
+    User author5 = new User(5,"mr anderson", "pass5".hashCode(), "not", "the one", "whatIsMatrix@gmail.com", Role.EMPLOYEE);
+    User author6 = new User(6,"trinity", "pass6".hashCode(), "three", "spirits", "not-a-man@gmail.com", Role.MANAGER);
 
     Ticket ticket;
     Ticket ticket1 = new Ticket(1,50,date,date,"desc","receipt",author1,
@@ -52,7 +53,11 @@ public class TicketServiceTest{
     Ticket ticket5 = new Ticket(5,100.75,date,date,"desc","receipt",author1,
         resolver, Status.PENDING,Type.OTHER);
     Ticket ticket6 = new Ticket(6,200,date,date,"desc","receipt",author2,
-        resolver, Status.PENDING,Type.FOOD);
+        resolver, Status.APPROVED,Type.FOOD);
+    Ticket ticket7 = new Ticket(5,100.75,date,date,"desc","receipt",author5,
+        resolver, Status.DENIED,Type.OTHER);
+    Ticket ticket8 = new Ticket(6,200,date,date,"desc","receipt",author6,
+        resolver, Status.DENIED,Type.FOOD);
     Ticket ticketDB;
     boolean testPass;
 
@@ -67,7 +72,7 @@ public class TicketServiceTest{
         ticket = null;
         ticketDB = null;
         ticketsDB = null;
-        tickets = Arrays.asList(ticket1,ticket2,ticket3,ticket4,ticket5,ticket6);
+        tickets = Arrays.asList(ticket1,ticket2,ticket3,ticket4,ticket5,ticket6,ticket7,ticket8);
     }
 
     @Test
@@ -116,6 +121,12 @@ public class TicketServiceTest{
         assertTrue(testPass);
         
         testPass = ticketService.addTicket(ticket6);
+        assertTrue(testPass);
+
+        testPass = ticketService.addTicket(ticket7);
+        assertTrue(testPass);
+
+        testPass = ticketService.addTicket(ticket8);
         assertTrue(testPass);
 
         ticketsDB = ticketService.getAllTickets();

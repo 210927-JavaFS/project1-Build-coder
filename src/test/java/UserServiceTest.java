@@ -39,6 +39,8 @@ public class UserServiceTest{
     User user2 = new User(2,"oracle", "pass2".hashCode(), "the", "oracle", "knowThyself@gmail.com", Role.EMPLOYEE);
     User user3 = new User(3,"neo one", "pass3".hashCode(), "the", "one", "theOne@gmail.com", Role.MANAGER);
     User user4 = new User(4,"morpheus", "pass4".hashCode(), "morph", "us", "morphUs@gmail.com", Role.MANAGER);
+    User user5 = new User(5,"mr anderson", "pass5".hashCode(), "not", "the one", "whatIsMatrix@gmail.com", Role.EMPLOYEE);
+    User user6 = new User(6,"trinity", "pass6".hashCode(), "three", "spirits", "not-a-man@gmail.com", Role.MANAGER);
 
     boolean testPass;
 
@@ -53,7 +55,7 @@ public class UserServiceTest{
         user = null;
         userDB = null;
         usersDB = null;
-        users = Arrays.asList(user1,user2,user3,user4);
+        users = Arrays.asList(user1,user2,user3,user4,user5,user6);
     }
 
     @Test
@@ -96,6 +98,12 @@ public class UserServiceTest{
         assertTrue(testPass);
 
         testPass = userService.addUser(user4);
+        assertTrue(testPass);
+
+        testPass = userService.addUser(user5);
+        assertTrue(testPass);
+
+        testPass = userService.addUser(user6);
         assertTrue(testPass);
 
         usersDB = userService.getAllUsers();
