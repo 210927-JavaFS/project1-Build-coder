@@ -31,27 +31,26 @@
     <!-- Button to toggle View Tickets on/off -->
     <div id="myDIV">
     
-    <!-- Table of Tickets -->
-    <table id="ticketTable" class="table">
-      <tbody>
-    
-      </tbody>
-    </table>
+      <!-- Table of Tickets -->
+      <table id="ticketTable" class="table">
+        <tbody>
+      
+        </tbody>
+      </table>
 
-
-    <!-- Drop Down Menu to Filter Tickets by Status -->
-    <div class="dropdown">
-      <button onclick="displayStatuses()" class="dropbtn">Filter by Status</button>
-      <div id="myDropdown" class="dropdown-content">
-        <button id="pending" onclick="getTicketsByStatus(id)">PENDING</button>
-        <button id="approved" onclick="getTicketsByStatus(id)">APPROVED</button>
-        <button id="denied" onclick="getTicketsByStatus(id)">DENIED</button>
+      <!-- Drop Down Menu to Filter Tickets by Status -->
+      <div class="dropdown">
+        <button onclick="displayStatuses()" class="dropbtn">Filter by Status</button>
+        <div id="myDropdown" class="dropdown-content">
+          <button id="pending" onclick="getTicketsByStatus(id)">PENDING</button>
+          <button id="approved" onclick="getTicketsByStatus(id)">APPROVED</button>
+          <button id="denied" onclick="getTicketsByStatus(id)">DENIED</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Approve/Deny Buttons -->
-    <button onclick="approveTickets()">Approve</button>
-    <button onclick="denyTickets()">Deny</button>
+      <!-- Approve/Deny Buttons -->
+      <button onclick="approveTickets()">Approve</button>
+      <button onclick="denyTickets()">Deny</button>
 
     </div>
 

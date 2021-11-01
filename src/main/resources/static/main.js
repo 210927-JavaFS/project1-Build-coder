@@ -71,13 +71,15 @@ function displayStatuses() {
 
       getTickets();
       var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
+      x.style.display = "block";
+      // if (x.style.display === "none") {
+      //   x.style.display = "block";
+      // } else {
+      //   x.style.display = "none";
+      // }
     } else {
       // if (((sessionStorage.getItem("currentUserRole"))==="EMPLOYEE")) {
+        // x.style.display = "none";
         document.getElementById("access_denied").innerHTML="";
         let para = document.createElement("p");
         para.setAttribute("style","color:red");
@@ -109,38 +111,50 @@ function displayStatuses() {
   }
 
   async function getTicketsByStatus(id){
+
+    let login = JSON.parse(sessionStorage.login);
+    console.log(login.role);
+
+    if (login.role==="MANAGER") {
     
-    let path = "";
-    let status = "";
+      let path = "";
+      let status = "";
 
-    switch (id) {
+      switch (id) {
 
-      case 'pending':
-      path="ticketsByPending";
-      break;
-
-      case 'approved':
-      path="ticketsByApproved";
-      status="APPROVED"
-      break;
-
-      case 'denied':
-      path="ticketsByDenied";
-      status="DENIED"
-      break;
-  
-      default:
+        case 'pending':
+        path="ticketsByPending";
         break;
-    }
 
-    let response = await fetch(URL+path);
-    // let response = await fetch(URL+"tickets", {credentials:"include"});
+        case 'approved':
+        path="ticketsByApproved";
+        status="APPROVED"
+        break;
 
-    if(response.status === 200){
-      let data = await response.json();
-      populateTable(data);
+        case 'denied':
+        path="ticketsByDenied";
+        status="DENIED"
+        break;
+    
+        default:
+          break;
+      }
+
+      let response = await fetch(URL+path);
+      // let response = await fetch(URL+"tickets", {credentials:"include"});
+
+      if(response.status === 200){
+        let data = await response.json();
+        populateTable(data);
+      }else{
+        console.log("Could not get tickets");
+      }
     }else{
-      console.log("Could not get tickets");
+      document.getElementById("access_denied").innerHTML="";
+      let para = document.createElement("p");
+      para.setAttribute("style","color:red");
+      para.innerText="UNAUTHORIZED ACCESS!";
+      document.getElementById("access_denied").appendChild(para);
     }
   }
 
