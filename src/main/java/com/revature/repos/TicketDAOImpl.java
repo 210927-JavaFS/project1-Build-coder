@@ -87,6 +87,7 @@ public class TicketDAOImpl implements TicketDAO{
 
 	
 	public boolean updateTicket(Ticket ticket) {
+		myLogger.info("in updateTicket() dao");
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
@@ -117,7 +118,9 @@ public class TicketDAOImpl implements TicketDAO{
 
 	@Override
 	public Ticket findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSession();
+		Ticket ticket = session.get(Ticket.class, id);
+		HibernateUtil.closeSession();
+		return ticket;
 	}
 }

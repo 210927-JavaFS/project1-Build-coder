@@ -8,7 +8,7 @@
   </appender>
   
   <!-- This is a file appender that will print to a file. -->
-   <appender name="FILE" class="ch.qos.logback.core.FileAppender" ref="STDOUT" level="OFF">
+   <appender name="FILE" class="ch.qos.logback.core.FileAppender" ref="STDOUT" level="debug">
         <file>logs\\log.txt</file>
         <append>true</append>
         <encoder>

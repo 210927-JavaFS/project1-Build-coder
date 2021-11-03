@@ -6,8 +6,13 @@ import com.revature.models.Ticket;
 import com.revature.models.User;
 import com.revature.repos.TicketDAOImpl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TicketService {
 	private TicketDAOImpl ticketDao = new TicketDAOImpl();
+	public static Logger myLogger = LoggerFactory.getLogger("myLogger");
+
 	
 	public List<Ticket> getAllTickets(){
 		return ticketDao.findAllTickets();
@@ -53,6 +58,8 @@ public class TicketService {
 	}
 	
 	public boolean updateTicket(Ticket ticket){
+		myLogger.info("in updateTicket() service");
+		myLogger.info(ticket.toString());
 		return ticketDao.updateTicket(ticket);
 	}
 	

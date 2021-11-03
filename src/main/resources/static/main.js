@@ -290,18 +290,13 @@ async function displayUsersTickets(){
   }
 }
 
-function approveTickets(){
-  let login = JSON.parse(sessionStorage.login);
-
-  if (login.role!="MANAGER") {
-    accessDenied();
-  }
-}
-
 function denyTickets(){
   let login = JSON.parse(sessionStorage.login);
 
   if (login.role!="MANAGER") {
+
+    console.log("You're a manager");
+  }else{
     accessDenied();
   }
 }
@@ -313,3 +308,136 @@ function accessDenied(){
   para.innerText="UNAUTHORIZED ACCESS!";
   document.getElementById("access_denied").appendChild(para);
 }
+
+function getAllChecks(){
+
+  let checkedBoxes = [];
+  const allBoxes = document.querySelectorAll("input[type='checkbox']");
+
+  for (let i = 0; i < allBoxes.length; i++) {
+    let item = allBoxes[i];
+    if (item.checked) {
+      checkedBoxes.push(i);
+    }
+  }
+  console.log(checkedBoxes);
+  return checkedBoxes;
+}
+
+// async function updateTicket(ticket,status){
+//   console.log("In updateTicket()");
+
+//   let updateTicket =  {
+//     id:ticket.id,
+//     amount:60,
+//     desc:ticket.desc,
+//     type:ticket.type,
+//     submitted:ticket.submitted,
+//     resolved:ticket.resolved,
+//     receipt:ticket.receipt,
+//     author:ticket.author,
+//     resolver:ticket.resolver,
+//     status:ticket.status
+//   }
+
+//   // ticket.setStatus(status);
+//   console.log("in updateTicket, ticket: "+ticket.id);
+//   console.log("in updateTicket, updateTicket: "+updateTicket.id);
+//   console.log("in updateTicket, ticket: "+ticket.amount);
+//   console.log("in updateTicket, updateTicket: "+updateTicket.amount);
+
+//   let response = await fetch(URL+"tickets" + ticket.id, {
+//     method:'PUT',
+//     body:JSON.stringify(updateTicket),
+//     credentials:"include"
+//   });
+
+//   if(response.status===201){
+//     console.log("Ticket updated successfully.");
+//   }else{
+//     console.log("Something went wrong updating your ticket.")
+//   }
+// }
+
+async function approveTickets(){
+  let login = JSON.parse(sessionStorage.login);
+  let allChecks = [];
+  let count = 0;
+
+  if (login.role==="MANAGER") {
+
+    let response = await fetch(URL+"tickets", {credentials:"include"});
+
+    if(response.status === 200){
+      console.log("in approveTickets()");
+      let data = await response.json();
+      console.log(data);
+      allChecks = getAllChecks();
+      console.log("allChecks: " + allChecks);
+
+      for (let i = 0; i < data.length; i++) {
+
+        if (i===allChecks[count]) {
+          console.log(data[i]);
+          let ticket = serializeData(data[i]);
+          updateTicket(ticket);
+          count++;
+        }
+      }
+
+    }else{
+      console.log("Could not get tickets");
+    }
+  }else{
+    accessDenied();
+  }
+}
+
+async function updateTicket(data) {
+  // data = createData();
+  let response = await fetch(URL + "tickets", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    credentials: "include",
+  });
+
+  if (response.status === 201) {
+    console.log("Ticket updated.");
+  } else {
+    console.log("Something went wrong submitting your ticket.");
+  }
+  // approveTicketId.value = "";
+}
+
+function serializeData(ticket){
+  console.log("in createData()");
+  console.log(ticket);
+  let login = JSON.parse(sessionStorage.login);
+
+  let newID = ticket.id;
+  let newAmount = ticket.amount;
+  let newDesc = ticket.desc; 
+  let newType = ticket.type;
+  let newSubmitted = ticket.submitted;
+  let newResolved = Date.now();
+  let newReceipt = "receipt";
+  let newAuthor = ticket.id;
+  let newResolver = login;
+  let newStatus = "APPROVED";
+
+  let updatedTicket =  {
+    id:newID,
+    amount:newAmount,
+    desc:newDesc,
+    type:newType,
+    submitted:newSubmitted,
+    resolved:newResolved,
+    receipt:newReceipt,
+    author:newAuthor,
+    resolver:newResolver,
+    status:newStatus
+  }
+
+  return updatedTicket;
+}
+  

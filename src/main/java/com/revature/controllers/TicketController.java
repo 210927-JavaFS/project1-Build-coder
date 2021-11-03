@@ -109,6 +109,8 @@ public class TicketController implements Controller{
 	};
 	
 	public Handler updateTicket = (ctx) -> {
+		myLogger.info("in updateTicket() controller");
+		
 		if (ctx.req.getSession(false) != null) {
 			Ticket ticket = ctx.bodyAsClass(Ticket.class);
 			if (ticketService.updateTicket(ticket)) {
@@ -151,6 +153,6 @@ public class TicketController implements Controller{
 		// app.get("/tickets/:ticket", this.getTicket);
 		app.post("/tickets", this.addTicket);
 		app.put("/tickets", this.updateTicket);
-		app.delete("/tickets/:ticket", this.deleteTicket);
+		app.delete("/tickets/:id", this.deleteTicket);
 	}
 }

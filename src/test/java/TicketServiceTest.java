@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.eclipse.jetty.util.DateCache.Tick;
 import org.junit.jupiter.api.*;
  
 @TestMethodOrder(OrderAnnotation.class)
@@ -156,21 +157,8 @@ public class TicketServiceTest{
         log.info("---End of getTicketById---------------------------------------");
 	}
 
-	@Test
+    @Test
     @Order(5)
-	public void updateTicketTest(){
-        log.info("---Begin of updateTicket-------------------------------------");
-        assertEquals(ticket3.getAmount(),100.25);
-        ticket3.setAmount(200.25);
-		testPass = ticketService.updateTicket(ticket3);
-        assertTrue(testPass);
-
-        // make sure that a new ticket isn't created
-        log.info("---End of updateTicket---------------------------------------");
-	}
-
-	@Test
-    @Order(6)
 	public void getAllByAuthorTest(){
         log.info("---Begin of getAllByAuthorTest-------------------------------------");
         
@@ -183,6 +171,27 @@ public class TicketServiceTest{
 
         log.info("---End of getAllByAuthorTest---------------------------------------");
 	}
+
+	@Test
+    @Order(6)
+	public void updateTicketTest(){
+        log.info("---Begin of updateTicket-------------------------------------");
+
+        // will use User3 for this test. ID: 3
+        assertEquals(ticket3.getStatus(),Status.PENDING);
+        ticket3.setStatus(Status.APPROVED);
+		testPass = ticketService.updateTicket(ticket3);
+        assertTrue(testPass);
+        assertEquals(ticketService.getTicketById(3).getStatus(), Status.APPROVED);
+
+        // assert update didn't duplicate account
+        ticketsDB = ticketService.getAllByAuthor(3);
+        assertEquals(ticketsDB.size(),1);
+
+        log.info("---End of updateTicket---------------------------------------");
+	}
+
+
 
 	
     @AfterEach
